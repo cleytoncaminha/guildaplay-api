@@ -1,4 +1,7 @@
 import { join } from "node:path";
+// TypeORM loads database drivers dynamically. Keep this static import so
+// Vercel's file tracer includes the PostgreSQL driver in the serverless bundle.
+import "pg";
 import type { DataSourceOptions } from "typeorm";
 
 import { AuthCredentialEntity } from "../auth/entities/auth-credential.entity";
