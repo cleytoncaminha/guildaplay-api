@@ -2,9 +2,9 @@ import { ValidationPipe, VersioningType } from "@nestjs/common";
 import { ConfigService } from "@nestjs/config";
 import { NestFactory } from "@nestjs/core";
 import { DocumentBuilder, SwaggerModule } from "@nestjs/swagger";
-import type { NextFunction } from "express";
+import type { NextFunction, RequestHandler } from "express";
 import * as helmet from "helmet";
-import cookieParser from "cookie-parser";
+import * as cookieParser from "cookie-parser";
 
 import { AppModule } from "./app.module.js";
 import type { EnvironmentVariables } from "./config/env.validation.js";
@@ -16,6 +16,14 @@ import {
   type RequestWithId,
 } from "./common/utils/request-id.js";
 
+type MiddlewareFactory = () => RequestHandler;
+
+const helmetMiddleware = (helmet as unknown as { default: MiddlewareFactory })
+  .default;
+const cookieParserMiddleware = (
+  cookieParser as unknown as { default: MiddlewareFactory }
+).default;
+
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
   const configService = app.get(ConfigService<EnvironmentVariables>);
@@ -24,8 +32,8 @@ async function bootstrap() {
   );
 
   app.enableShutdownHooks();
-  app.use(helmet.default());
-  app.use(cookieParser());
+  app.use(helmetMiddleware());
+  app.use(cookieParserMiddleware());
   app.use(
     (
       request: RequestWithId,
