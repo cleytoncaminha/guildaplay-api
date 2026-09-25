@@ -1,0 +1,43 @@
+export enum CatalogItemType {
+  CORE_BOOK = "CORE_BOOK",
+  SETTING = "SETTING",
+  ADVENTURE = "ADVENTURE",
+  SUPPLEMENT = "SUPPLEMENT",
+  TOOL = "TOOL",
+}
+
+export enum CatalogStatus {
+  DRAFT = "DRAFT",
+  PUBLISHED = "PUBLISHED",
+  ARCHIVED = "ARCHIVED",
+}
+
+export enum CreatorRole {
+  AUTHOR = "AUTHOR",
+  DESIGNER = "DESIGNER",
+  ILLUSTRATOR = "ILLUSTRATOR",
+  EDITOR = "EDITOR",
+  TRANSLATOR = "TRANSLATOR",
+  OTHER = "OTHER",
+}
+
+export enum CatalogItemMediaKind {
+  COVER = "COVER",
+  IMAGE = "IMAGE",
+}
+
+export enum CatalogExperienceLevel {
+  BEGINNER = "BEGINNER",
+  INTERMEDIATE = "INTERMEDIATE",
+  ADVANCED = "ADVANCED",
+}
+
+export enum CatalogItemRelationType {
+  REQUIRES = "REQUIRES",
+  SUPPLEMENT_OF = "SUPPLEMENT_OF",
+  ADVENTURE_FOR = "ADVENTURE_FOR",
+  SETTING_FOR = "SETTING_FOR",
+  EDITION_OF = "EDITION_OF",
+  EXPANSION_OF = "EXPANSION_OF",
+  COMPATIBLE_WITH = "COMPATIBLE_WITH",
+}

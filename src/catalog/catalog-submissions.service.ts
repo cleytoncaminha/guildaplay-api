@@ -1,0 +1,96 @@
+import { Injectable, NotFoundException } from "@nestjs/common";
+import { InjectRepository } from "@nestjs/typeorm";
+import { DataSource, Repository } from "typeorm";
+import { AuditLogEntity } from "../audit/audit-log.entity";
+import { AuthenticatedUser } from "../auth/auth.types";
+import {
+  CreateCatalogSubmissionDto,
+  ListMyCatalogSubmissionsQueryDto,
+} from "./dto/catalog-submission.dto";
+import { CatalogItemEntity } from "./entities/catalog-item.entity";
+import {
+  CatalogSubmissionEntity,
+  CatalogSubmissionStatus,
+  CatalogSubmissionType,
+} from "./entities/catalog-submission.entity";
+
+@Injectable()
+export class CatalogSubmissionsService {
+  constructor(
+    private db: DataSource,
+    @InjectRepository(CatalogSubmissionEntity)
+    private submissions: Repository<CatalogSubmissionEntity>,
+  ) {}
+  private view(s: CatalogSubmissionEntity) {
+    return {
+      id: s.id,
+      type: s.type,
+      catalogItemId: s.catalogItemId,
+      payload: s.payload,
+      status: s.status,
+      createdAt: s.createdAt,
+      updatedAt: s.updatedAt,
+    };
+  }
+  async create(user: AuthenticatedUser, dto: CreateCatalogSubmissionDto) {
+    return this.db.transaction(async (m) => {
+      if (
+        dto.type === CatalogSubmissionType.UPDATE_ITEM &&
+        !(await m.findOneBy(CatalogItemEntity, { id: dto.catalogItemId! }))
+      )
+        throw new NotFoundException({
+          code: "CATALOG_ITEM_NOT_FOUND",
+          message: "Item de catálogo não encontrado.",
+        });
+      const s = await m.save(
+        m.create(CatalogSubmissionEntity, {
+          submittedByUserId: user.id,
+          catalogItemId:
+            dto.type === CatalogSubmissionType.UPDATE_ITEM
+              ? dto.catalogItemId!
+              : null,
+          type: dto.type,
+          payload: dto.payload,
+          status: CatalogSubmissionStatus.PENDING,
+        }),
+      );
+      await m.save(
+        m.create(AuditLogEntity, {
+          actorUserId: user.id,
+          eventType: "CATALOG_SUBMISSION_CREATED",
+          metadata: { submissionId: s.id, type: s.type },
+        }),
+      );
+      return this.view(s);
+    });
+  }
+  async listMine(user: AuthenticatedUser, q: ListMyCatalogSubmissionsQueryDto) {
+    const [rows, total] = await this.submissions.findAndCount({
+      where: { submittedByUserId: user.id },
+      order: { createdAt: "DESC" },
+      skip: (q.page - 1) * q.limit,
+      take: q.limit,
+    });
+    return {
+      data: rows.map((s) => this.view(s)),
+      meta: {
+        page: q.page,
+        limit: q.limit,
+        total,
+        totalPages: Math.ceil(total / q.limit),
+      },
+    };
+  }
+  async getMine(user: AuthenticatedUser, id: string) {
+    const s = await this.submissions.findOneBy({
+      id,
+      submittedByUserId: user.id,
+    });
+    if (!s)
+      throw new NotFoundException({
+        code: "CATALOG_SUBMISSION_NOT_FOUND",
+        message: "Proposta não encontrada.",
+      });
+    return this.view(s);
+  }
+}
