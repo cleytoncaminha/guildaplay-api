@@ -31,7 +31,7 @@ export class CatalogPersonalService {
     dto: UpdateCatalogUserItemDto,
   ) {
     return this.db.transaction(async (manager) => {
-      await this.publishedItemOrFail(manager, itemId);
+      const catalogItem = await this.publishedItemOrFail(manager, itemId);
       let entry = await manager.findOneBy(CatalogUserItemEntity, {
         userId: user.id,
         catalogItemId: itemId,
@@ -47,6 +47,7 @@ export class CatalogPersonalService {
           privateComment: null,
         });
       }
+      entry.catalogItem = catalogItem;
 
       if (dto.hasItem !== undefined) entry.hasItem = dto.hasItem;
       if (dto.wantsItem !== undefined) entry.wantsItem = dto.wantsItem;

@@ -4,7 +4,7 @@ import { NestFactory } from "@nestjs/core";
 import { DocumentBuilder, SwaggerModule } from "@nestjs/swagger";
 import type { NextFunction } from "express";
 import helmet from "helmet";
-import cookieParser = require("cookie-parser");
+import cookieParser from "cookie-parser";
 
 import { AppModule } from "./app.module";
 import type { EnvironmentVariables } from "./config/env.validation";

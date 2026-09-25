@@ -28,16 +28,27 @@ export class CatalogSubmissionsService {
       catalogItemId: s.catalogItemId,
       payload: s.payload,
       status: s.status,
+      catalogItem: s.catalogItem
+        ? {
+            id: s.catalogItem.id,
+            slug: s.catalogItem.slug,
+            title: s.catalogItem.title,
+            type: s.catalogItem.type,
+          }
+        : null,
+      reviewReason: s.reviewReason,
+      reviewedAt: s.reviewedAt,
       createdAt: s.createdAt,
       updatedAt: s.updatedAt,
     };
   }
   async create(user: AuthenticatedUser, dto: CreateCatalogSubmissionDto) {
     return this.db.transaction(async (m) => {
-      if (
-        dto.type === CatalogSubmissionType.UPDATE_ITEM &&
-        !(await m.findOneBy(CatalogItemEntity, { id: dto.catalogItemId! }))
-      )
+      const catalogItem =
+        dto.type === CatalogSubmissionType.UPDATE_ITEM
+          ? await m.findOneBy(CatalogItemEntity, { id: dto.catalogItemId! })
+          : null;
+      if (dto.type === CatalogSubmissionType.UPDATE_ITEM && !catalogItem)
         throw new NotFoundException({
           code: "CATALOG_ITEM_NOT_FOUND",
           message: "Item de catálogo não encontrado.",
@@ -49,6 +60,7 @@ export class CatalogSubmissionsService {
             dto.type === CatalogSubmissionType.UPDATE_ITEM
               ? dto.catalogItemId!
               : null,
+          catalogItem,
           type: dto.type,
           payload: dto.payload,
           status: CatalogSubmissionStatus.PENDING,
@@ -67,6 +79,7 @@ export class CatalogSubmissionsService {
   async listMine(user: AuthenticatedUser, q: ListMyCatalogSubmissionsQueryDto) {
     const [rows, total] = await this.submissions.findAndCount({
       where: { submittedByUserId: user.id },
+      relations: { catalogItem: true },
       order: { createdAt: "DESC" },
       skip: (q.page - 1) * q.limit,
       take: q.limit,
@@ -82,9 +95,9 @@ export class CatalogSubmissionsService {
     };
   }
   async getMine(user: AuthenticatedUser, id: string) {
-    const s = await this.submissions.findOneBy({
-      id,
-      submittedByUserId: user.id,
+    const s = await this.submissions.findOne({
+      where: { id, submittedByUserId: user.id },
+      relations: { catalogItem: true },
     });
     if (!s)
       throw new NotFoundException({
