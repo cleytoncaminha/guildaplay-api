@@ -2,20 +2,20 @@ import { Module } from "@nestjs/common";
 import { APP_GUARD } from "@nestjs/core";
 import { ConfigModule } from "@nestjs/config";
 
-import { validateEnvironment } from "./config/env.validation";
-import { AuthModule } from "./auth/auth.module";
-import { DatabaseModule } from "./database/database.module";
-import { HealthModule } from "./health/health.module";
-import { UsersModule } from "./users/users.module";
-import { JwtAuthGuard } from "./auth/jwt-auth.guard";
-import { GmProfilesModule } from "./gm-profiles/gm-profiles.module";
-import { TablesModule } from "./tables/tables.module";
-import { InvitationsModule } from "./invitations/invitations.module";
-import { MembershipsModule } from "./memberships/memberships.module";
-import { StorageModule } from "./storage/storage.module";
-import { MediaModule } from "./media/media.module";
-import { AdminModule } from "./admin/admin.module";
-import { CatalogModule } from "./catalog/catalog.module";
+import { validateEnvironment } from "./config/env.validation.js";
+import { AuthModule } from "./auth/auth.module.js";
+import { DatabaseModule } from "./database/database.module.js";
+import { HealthModule } from "./health/health.module.js";
+import { UsersModule } from "./users/users.module.js";
+import { JwtAuthGuard } from "./auth/jwt-auth.guard.js";
+import { GmProfilesModule } from "./gm-profiles/gm-profiles.module.js";
+import { TablesModule } from "./tables/tables.module.js";
+import { InvitationsModule } from "./invitations/invitations.module.js";
+import { MembershipsModule } from "./memberships/memberships.module.js";
+import { StorageModule } from "./storage/storage.module.js";
+import { MediaModule } from "./media/media.module.js";
+import { AdminModule } from "./admin/admin.module.js";
+import { CatalogModule } from "./catalog/catalog.module.js";
 
 @Module({
   imports: [

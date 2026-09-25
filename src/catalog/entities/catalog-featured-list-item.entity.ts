@@ -7,9 +7,10 @@ import {
   ManyToOne,
   PrimaryColumn,
 } from "typeorm";
+import type { Relation } from "typeorm";
 
-import { CatalogItemEntity } from "./catalog-item.entity";
-import { CatalogFeaturedListEntity } from "./catalog-featured-list.entity";
+import { CatalogItemEntity } from "./catalog-item.entity.js";
+import { CatalogFeaturedListEntity } from "./catalog-featured-list.entity.js";
 
 @Entity({ name: "catalog_featured_list_items" })
 @Check("CHK_catalog_featured_list_items_position", `"position" >= 0`)
@@ -29,9 +30,9 @@ export class CatalogFeaturedListItemEntity {
     onDelete: "CASCADE",
   })
   @JoinColumn({ name: "featured_list_id" })
-  list!: CatalogFeaturedListEntity;
+  list!: Relation<CatalogFeaturedListEntity>;
 
   @ManyToOne(() => CatalogItemEntity, { onDelete: "RESTRICT" })
   @JoinColumn({ name: "catalog_item_id" })
-  catalogItem!: CatalogItemEntity;
+  catalogItem!: Relation<CatalogItemEntity>;
 }

@@ -7,9 +7,10 @@ import {
   PrimaryGeneratedColumn,
   UpdateDateColumn,
 } from "typeorm";
+import type { Relation } from "typeorm";
 
-import { UserEntity } from "../../users/entities/user.entity";
-import { CatalogItemEntity } from "./catalog-item.entity";
+import { UserEntity } from "../../users/entities/user.entity.js";
+import { CatalogItemEntity } from "./catalog-item.entity.js";
 
 export enum CatalogSubmissionType {
   CREATE_ITEM = "CREATE_ITEM",
@@ -71,13 +72,13 @@ export class CatalogSubmissionEntity {
 
   @ManyToOne(() => UserEntity, { onDelete: "RESTRICT" })
   @JoinColumn({ name: "submitted_by_user_id" })
-  submittedBy!: UserEntity;
+  submittedBy!: Relation<UserEntity>;
 
   @ManyToOne(() => CatalogItemEntity, { onDelete: "RESTRICT" })
   @JoinColumn({ name: "catalog_item_id" })
-  catalogItem!: CatalogItemEntity | null;
+  catalogItem!: Relation<CatalogItemEntity> | null;
 
   @ManyToOne(() => UserEntity, { onDelete: "RESTRICT" })
   @JoinColumn({ name: "reviewed_by_user_id" })
-  reviewedBy!: UserEntity | null;
+  reviewedBy!: Relation<UserEntity> | null;
 }

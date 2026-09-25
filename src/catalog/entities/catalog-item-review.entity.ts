@@ -9,9 +9,10 @@ import {
   Unique,
   UpdateDateColumn,
 } from "typeorm";
+import type { Relation } from "typeorm";
 
-import { UserEntity } from "../../users/entities/user.entity";
-import { CatalogItemEntity } from "./catalog-item.entity";
+import { UserEntity } from "../../users/entities/user.entity.js";
+import { CatalogItemEntity } from "./catalog-item.entity.js";
 
 export enum CatalogReviewStatus {
   PENDING = "PENDING",
@@ -63,13 +64,13 @@ export class CatalogItemReviewEntity {
 
   @ManyToOne(() => UserEntity, { onDelete: "RESTRICT" })
   @JoinColumn({ name: "user_id" })
-  user!: UserEntity;
+  user!: Relation<UserEntity>;
 
   @ManyToOne(() => CatalogItemEntity, { onDelete: "RESTRICT" })
   @JoinColumn({ name: "catalog_item_id" })
-  catalogItem!: CatalogItemEntity;
+  catalogItem!: Relation<CatalogItemEntity>;
 
   @ManyToOne(() => UserEntity, { onDelete: "RESTRICT" })
   @JoinColumn({ name: "moderated_by_user_id" })
-  moderatedBy!: UserEntity | null;
+  moderatedBy!: Relation<UserEntity> | null;
 }

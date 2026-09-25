@@ -7,9 +7,10 @@ import {
   PrimaryGeneratedColumn,
   UpdateDateColumn,
 } from "typeorm";
+import type { Relation } from "typeorm";
 
-import { CatalogItemEntity } from "./catalog-item.entity";
-import { PublisherEntity } from "./publisher.entity";
+import { CatalogItemEntity } from "./catalog-item.entity.js";
+import { PublisherEntity } from "./publisher.entity.js";
 
 @Entity({ name: "catalog_editions" })
 export class CatalogEditionEntity {
@@ -46,11 +47,11 @@ export class CatalogEditionEntity {
     onDelete: "RESTRICT",
   })
   @JoinColumn({ name: "catalog_item_id" })
-  catalogItem!: CatalogItemEntity;
+  catalogItem!: Relation<CatalogItemEntity>;
 
   @ManyToOne(() => PublisherEntity, (publisher) => publisher.catalogEditions, {
     onDelete: "RESTRICT",
   })
   @JoinColumn({ name: "publisher_id" })
-  publisher!: PublisherEntity | null;
+  publisher!: Relation<PublisherEntity> | null;
 }

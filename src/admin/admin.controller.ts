@@ -5,11 +5,11 @@ import {
   ApiResponse,
   ApiTags,
 } from "@nestjs/swagger";
-import { Roles } from "../auth/auth.decorators";
-import { RolesGuard } from "../auth/roles.guard";
-import { UserRole } from "../users/entities/user-role.entity";
-import { AdminService } from "./admin.service";
-import { ListAuditLogsQueryDto } from "./dto/list-audit-logs-query.dto";
+import { Roles } from "../auth/auth.decorators.js";
+import { RolesGuard } from "../auth/roles.guard.js";
+import { UserRole } from "../users/entities/user-role.entity.js";
+import { AdminService } from "./admin.service.js";
+import { ListAuditLogsQueryDto } from "./dto/list-audit-logs-query.dto.js";
 
 @ApiTags("Admin")
 @ApiBearerAuth()

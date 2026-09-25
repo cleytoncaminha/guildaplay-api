@@ -1,8 +1,8 @@
 import { BadRequestException, Injectable } from "@nestjs/common";
 import { InjectRepository } from "@nestjs/typeorm";
 import { Repository } from "typeorm";
-import { AuditLogEntity } from "../audit/audit-log.entity";
-import { ListAuditLogsQueryDto } from "./dto/list-audit-logs-query.dto";
+import { AuditLogEntity } from "../audit/audit-log.entity.js";
+import { ListAuditLogsQueryDto } from "./dto/list-audit-logs-query.dto.js";
 
 const SENSITIVE_METADATA_KEYS = new Set([
   "password",

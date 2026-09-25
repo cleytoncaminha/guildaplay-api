@@ -7,8 +7,9 @@ import {
   ManyToOne,
   PrimaryGeneratedColumn,
 } from "typeorm";
+import type { Relation } from "typeorm";
 
-import { UserEntity } from "../../users/entities/user.entity";
+import { UserEntity } from "../../users/entities/user.entity.js";
 
 @Entity({ name: "auth_sessions" })
 @Index("IDX_auth_sessions_user_id", ["userId"])
@@ -49,5 +50,5 @@ export class AuthSessionEntity {
     onDelete: "RESTRICT",
   })
   @JoinColumn({ name: "user_id", referencedColumnName: "id" })
-  user!: UserEntity;
+  user!: Relation<UserEntity>;
 }

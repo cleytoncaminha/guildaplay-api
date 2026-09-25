@@ -3,22 +3,22 @@ import { TypeOrmModule } from "@nestjs/typeorm";
 import { JwtModule } from "@nestjs/jwt";
 import { PassportModule } from "@nestjs/passport";
 import { ThrottlerModule } from "@nestjs/throttler";
-import { UserEntity } from "../users/entities/user.entity";
-import { UserRoleEntity } from "../users/entities/user-role.entity";
-import { AuditLogEntity } from "../audit/audit-log.entity";
-import { GmProfileEntity } from "../gm-profiles/entities/gm-profile.entity";
-import { AuthController } from "./auth.controller";
-import { AuthService } from "./auth.service";
-import { PasswordService } from "./password.service";
-import { SessionService } from "./session.service";
-import { TokenService } from "./token.service";
-import { JwtStrategy } from "./jwt.strategy";
-import { JwtAuthGuard } from "./jwt-auth.guard";
+import { UserEntity } from "../users/entities/user.entity.js";
+import { UserRoleEntity } from "../users/entities/user-role.entity.js";
+import { AuditLogEntity } from "../audit/audit-log.entity.js";
+import { GmProfileEntity } from "../gm-profiles/entities/gm-profile.entity.js";
+import { AuthController } from "./auth.controller.js";
+import { AuthService } from "./auth.service.js";
+import { PasswordService } from "./password.service.js";
+import { SessionService } from "./session.service.js";
+import { TokenService } from "./token.service.js";
+import { JwtStrategy } from "./jwt.strategy.js";
+import { JwtAuthGuard } from "./jwt-auth.guard.js";
 
-import { AuthCredentialEntity } from "./entities/auth-credential.entity";
-import { AuthSessionEntity } from "./entities/auth-session.entity";
-import { EmailVerificationTokenEntity } from "./entities/email-verification-token.entity";
-import { PasswordResetTokenEntity } from "./entities/password-reset-token.entity";
+import { AuthCredentialEntity } from "./entities/auth-credential.entity.js";
+import { AuthSessionEntity } from "./entities/auth-session.entity.js";
+import { EmailVerificationTokenEntity } from "./entities/email-verification-token.entity.js";
+import { PasswordResetTokenEntity } from "./entities/password-reset-token.entity.js";
 
 @Module({
   imports: [

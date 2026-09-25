@@ -1,13 +1,13 @@
 import { Module } from "@nestjs/common";
 import { TypeOrmModule } from "@nestjs/typeorm";
-import { AuditLogEntity } from "../audit/audit-log.entity";
-import { RolesGuard } from "../auth/roles.guard";
-import { VerifiedEmailGuard } from "../auth/verified-email.guard";
-import { GmProfileEntity } from "../gm-profiles/entities/gm-profile.entity";
-import { BillingPlanEntity } from "./entities/billing-plan.entity";
-import { GameTableEntity } from "./entities/game-table.entity";
-import { TablesController } from "./tables.controller";
-import { TablesService } from "./tables.service";
+import { AuditLogEntity } from "../audit/audit-log.entity.js";
+import { RolesGuard } from "../auth/roles.guard.js";
+import { VerifiedEmailGuard } from "../auth/verified-email.guard.js";
+import { GmProfileEntity } from "../gm-profiles/entities/gm-profile.entity.js";
+import { BillingPlanEntity } from "./entities/billing-plan.entity.js";
+import { GameTableEntity } from "./entities/game-table.entity.js";
+import { TablesController } from "./tables.controller.js";
+import { TablesService } from "./tables.service.js";
 @Module({
   imports: [
     TypeOrmModule.forFeature([

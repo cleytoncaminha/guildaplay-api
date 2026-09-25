@@ -9,12 +9,13 @@ import {
   Unique,
   UpdateDateColumn,
 } from "typeorm";
+import type { Relation } from "typeorm";
 
-import { AuthCredentialEntity } from "../../auth/entities/auth-credential.entity";
-import { AuthSessionEntity } from "../../auth/entities/auth-session.entity";
-import { EmailVerificationTokenEntity } from "../../auth/entities/email-verification-token.entity";
-import { PasswordResetTokenEntity } from "../../auth/entities/password-reset-token.entity";
-import { UserRoleEntity } from "./user-role.entity";
+import { AuthCredentialEntity } from "../../auth/entities/auth-credential.entity.js";
+import { AuthSessionEntity } from "../../auth/entities/auth-session.entity.js";
+import { EmailVerificationTokenEntity } from "../../auth/entities/email-verification-token.entity.js";
+import { PasswordResetTokenEntity } from "../../auth/entities/password-reset-token.entity.js";
+import { UserRoleEntity } from "./user-role.entity.js";
 
 export enum UserStatus {
   ACTIVE = "ACTIVE",
@@ -68,23 +69,23 @@ export class UserEntity {
   deletedAt!: Date | null;
 
   @OneToMany(() => UserRoleEntity, (userRole) => userRole.user)
-  roles!: UserRoleEntity[];
+  roles!: Relation<UserRoleEntity[]>;
 
   @OneToOne(() => AuthCredentialEntity, (credential) => credential.user)
-  credential!: AuthCredentialEntity | null;
+  credential!: Relation<AuthCredentialEntity> | null;
 
   @OneToMany(() => AuthSessionEntity, (session) => session.user)
-  sessions!: AuthSessionEntity[];
+  sessions!: Relation<AuthSessionEntity[]>;
 
   @OneToMany(
     () => EmailVerificationTokenEntity,
     (verificationToken) => verificationToken.user,
   )
-  emailVerificationTokens!: EmailVerificationTokenEntity[];
+  emailVerificationTokens!: Relation<EmailVerificationTokenEntity[]>;
 
   @OneToMany(
     () => PasswordResetTokenEntity,
     (passwordResetToken) => passwordResetToken.user,
   )
-  passwordResetTokens!: PasswordResetTokenEntity[];
+  passwordResetTokens!: Relation<PasswordResetTokenEntity[]>;
 }

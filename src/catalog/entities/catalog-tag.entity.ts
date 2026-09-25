@@ -6,8 +6,9 @@ import {
   PrimaryGeneratedColumn,
   UpdateDateColumn,
 } from "typeorm";
+import type { Relation } from "typeorm";
 
-import { CatalogItemTagEntity } from "./catalog-item-tag.entity";
+import { CatalogItemTagEntity } from "./catalog-item-tag.entity.js";
 
 @Entity({ name: "catalog_tags" })
 export class CatalogTagEntity {
@@ -24,5 +25,5 @@ export class CatalogTagEntity {
   updatedAt!: Date;
 
   @OneToMany(() => CatalogItemTagEntity, (item) => item.tag)
-  catalogItems!: CatalogItemTagEntity[];
+  catalogItems!: Relation<CatalogItemTagEntity[]>;
 }

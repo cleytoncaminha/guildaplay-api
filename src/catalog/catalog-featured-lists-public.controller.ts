@@ -1,9 +1,9 @@
 import { Controller, Get, Param, Query } from "@nestjs/common";
 import { ApiOperation, ApiResponse, ApiTags } from "@nestjs/swagger";
 
-import { Public } from "../auth/auth.decorators";
-import { ListCatalogFeaturedListsQueryDto } from "./dto/catalog-featured-list.dto";
-import { CatalogFeaturedListsService } from "./catalog-featured-lists.service";
+import { Public } from "../auth/auth.decorators.js";
+import { ListCatalogFeaturedListsQueryDto } from "./dto/catalog-featured-list.dto.js";
+import { CatalogFeaturedListsService } from "./catalog-featured-lists.service.js";
 
 @ApiTags("Catalog")
 @Public()

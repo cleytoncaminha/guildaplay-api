@@ -5,10 +5,11 @@ import {
   ManyToOne,
   PrimaryColumn,
 } from "typeorm";
+import type { Relation } from "typeorm";
 
-import { CreatorRole } from "../enums/catalog.enums";
-import { CatalogItemEntity } from "./catalog-item.entity";
-import { CreatorEntity } from "./creator.entity";
+import { CreatorRole } from "../enums/catalog.enums.js";
+import { CatalogItemEntity } from "./catalog-item.entity.js";
+import { CreatorEntity } from "./creator.entity.js";
 
 @Entity({ name: "catalog_item_creators" })
 export class CatalogItemCreatorEntity {
@@ -27,11 +28,11 @@ export class CatalogItemCreatorEntity {
     onDelete: "RESTRICT",
   })
   @JoinColumn({ name: "catalog_item_id" })
-  catalogItem!: CatalogItemEntity;
+  catalogItem!: Relation<CatalogItemEntity>;
 
   @ManyToOne(() => CreatorEntity, (creator) => creator.catalogItems, {
     onDelete: "RESTRICT",
   })
   @JoinColumn({ name: "creator_id" })
-  creator!: CreatorEntity;
+  creator!: Relation<CreatorEntity>;
 }

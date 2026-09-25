@@ -11,15 +11,15 @@ import {
 } from "@nestjs/common";
 import { ApiBearerAuth, ApiTags } from "@nestjs/swagger";
 
-import { CurrentUser, Roles } from "../auth/auth.decorators";
-import { AuthenticatedUser } from "../auth/auth.types";
-import { RolesGuard } from "../auth/roles.guard";
-import { UserRole } from "../users/entities/user-role.entity";
+import { CurrentUser, Roles } from "../auth/auth.decorators.js";
+import { AuthenticatedUser } from "../auth/auth.types.js";
+import { RolesGuard } from "../auth/roles.guard.js";
+import { UserRole } from "../users/entities/user-role.entity.js";
 import {
   ListCatalogReviewsQueryDto,
   ModerateCatalogReviewDto,
-} from "./dto/catalog-review.dto";
-import { CatalogReviewsService } from "./catalog-reviews.service";
+} from "./dto/catalog-review.dto.js";
+import { CatalogReviewsService } from "./catalog-reviews.service.js";
 
 @ApiTags("Catalog Moderation")
 @ApiBearerAuth()

@@ -13,11 +13,11 @@ import {
   ApiResponse,
   ApiTags,
 } from "@nestjs/swagger";
-import { CurrentUser, Roles } from "../auth/auth.decorators";
-import { AuthenticatedUser } from "../auth/auth.types";
-import { RolesGuard } from "../auth/roles.guard";
-import { UserRole } from "../users/entities/user-role.entity";
-import { MembershipsService } from "./memberships.service";
+import { CurrentUser, Roles } from "../auth/auth.decorators.js";
+import { AuthenticatedUser } from "../auth/auth.types.js";
+import { RolesGuard } from "../auth/roles.guard.js";
+import { UserRole } from "../users/entities/user-role.entity.js";
+import { MembershipsService } from "./memberships.service.js";
 @Controller()
 @ApiTags("Memberships")
 export class MembershipsController {

@@ -18,12 +18,12 @@ import {
   ApiTags,
 } from "@nestjs/swagger";
 
-import { CurrentUser, Roles } from "../auth/auth.decorators";
-import { AuthenticatedUser } from "../auth/auth.types";
-import { RolesGuard } from "../auth/roles.guard";
-import { UserRole } from "../users/entities/user-role.entity";
-import { CatalogService } from "./catalog.service";
-import { CreateCatalogItemRelationDto } from "./dto/catalog-item-relation.dto";
+import { CurrentUser, Roles } from "../auth/auth.decorators.js";
+import { AuthenticatedUser } from "../auth/auth.types.js";
+import { RolesGuard } from "../auth/roles.guard.js";
+import { UserRole } from "../users/entities/user-role.entity.js";
+import { CatalogService } from "./catalog.service.js";
+import { CreateCatalogItemRelationDto } from "./dto/catalog-item-relation.dto.js";
 import {
   CreateCatalogEditionDto,
   CreateCatalogCategoryDto,
@@ -44,7 +44,7 @@ import {
   UpdateCreatorDto,
   UpdatePublisherDto,
   UpdateRpgSystemDto,
-} from "./dto/catalog-admin.dto";
+} from "./dto/catalog-admin.dto.js";
 
 @ApiTags("Catalog Admin")
 @ApiBearerAuth()

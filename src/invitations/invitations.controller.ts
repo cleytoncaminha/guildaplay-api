@@ -14,13 +14,13 @@ import {
   ApiResponse,
   ApiTags,
 } from "@nestjs/swagger";
-import { CurrentUser, Public, Roles } from "../auth/auth.decorators";
-import { AuthenticatedUser } from "../auth/auth.types";
-import { RolesGuard } from "../auth/roles.guard";
-import { VerifiedEmailGuard } from "../auth/verified-email.guard";
-import { UserRole } from "../users/entities/user-role.entity";
-import { CreateInvitationDto } from "./dto/create-invitation.dto";
-import { InvitationsService } from "./invitations.service";
+import { CurrentUser, Public, Roles } from "../auth/auth.decorators.js";
+import { AuthenticatedUser } from "../auth/auth.types.js";
+import { RolesGuard } from "../auth/roles.guard.js";
+import { VerifiedEmailGuard } from "../auth/verified-email.guard.js";
+import { UserRole } from "../users/entities/user-role.entity.js";
+import { CreateInvitationDto } from "./dto/create-invitation.dto.js";
+import { InvitationsService } from "./invitations.service.js";
 @Controller()
 @ApiTags("Invitations")
 export class InvitationsController {

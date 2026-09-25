@@ -6,8 +6,9 @@ import {
   ManyToOne,
   PrimaryGeneratedColumn,
 } from "typeorm";
+import type { Relation } from "typeorm";
 
-import { GameTableEntity } from "./game-table.entity";
+import { GameTableEntity } from "./game-table.entity.js";
 
 export enum BillingInterval {
   MONTHLY = "MONTHLY",
@@ -48,5 +49,5 @@ export class BillingPlanEntity {
     onDelete: "RESTRICT",
   })
   @JoinColumn({ name: "game_table_id" })
-  gameTable!: GameTableEntity;
+  gameTable!: Relation<GameTableEntity>;
 }

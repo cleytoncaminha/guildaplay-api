@@ -6,9 +6,10 @@ import {
   PrimaryGeneratedColumn,
   UpdateDateColumn,
 } from "typeorm";
+import type { Relation } from "typeorm";
 
-import { CatalogEditionEntity } from "./catalog-edition.entity";
-import { RpgSystemEntity } from "./rpg-system.entity";
+import { CatalogEditionEntity } from "./catalog-edition.entity.js";
+import { RpgSystemEntity } from "./rpg-system.entity.js";
 
 @Entity({ name: "publishers" })
 export class PublisherEntity {
@@ -31,8 +32,8 @@ export class PublisherEntity {
   updatedAt!: Date;
 
   @OneToMany(() => RpgSystemEntity, (system) => system.publisher)
-  rpgSystems!: RpgSystemEntity[];
+  rpgSystems!: Relation<RpgSystemEntity[]>;
 
   @OneToMany(() => CatalogEditionEntity, (edition) => edition.publisher)
-  catalogEditions!: CatalogEditionEntity[];
+  catalogEditions!: Relation<CatalogEditionEntity[]>;
 }

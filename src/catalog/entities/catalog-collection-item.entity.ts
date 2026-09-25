@@ -5,10 +5,11 @@ import {
   ManyToOne,
   PrimaryColumn,
 } from "typeorm";
+import type { Relation } from "typeorm";
 import { Column } from "typeorm";
 
-import { CatalogItemEntity } from "./catalog-item.entity";
-import { CatalogCollectionEntity } from "./catalog-collection.entity";
+import { CatalogItemEntity } from "./catalog-item.entity.js";
+import { CatalogCollectionEntity } from "./catalog-collection.entity.js";
 
 @Entity({ name: "catalog_collection_items" })
 export class CatalogCollectionItemEntity {
@@ -26,9 +27,9 @@ export class CatalogCollectionItemEntity {
     onDelete: "CASCADE",
   })
   @JoinColumn({ name: "collection_id" })
-  collection!: CatalogCollectionEntity;
+  collection!: Relation<CatalogCollectionEntity>;
 
   @ManyToOne(() => CatalogItemEntity, { onDelete: "RESTRICT" })
   @JoinColumn({ name: "catalog_item_id" })
-  catalogItem!: CatalogItemEntity;
+  catalogItem!: Relation<CatalogItemEntity>;
 }

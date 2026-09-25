@@ -5,9 +5,10 @@ import {
   ManyToOne,
   PrimaryColumn,
 } from "typeorm";
+import type { Relation } from "typeorm";
 
-import { CatalogCategoryEntity } from "./catalog-category.entity";
-import { CatalogItemEntity } from "./catalog-item.entity";
+import { CatalogCategoryEntity } from "./catalog-category.entity.js";
+import { CatalogItemEntity } from "./catalog-item.entity.js";
 
 @Entity({ name: "catalog_item_categories" })
 export class CatalogItemCategoryEntity {
@@ -23,11 +24,11 @@ export class CatalogItemCategoryEntity {
     onDelete: "RESTRICT",
   })
   @JoinColumn({ name: "catalog_item_id" })
-  catalogItem!: CatalogItemEntity;
+  catalogItem!: Relation<CatalogItemEntity>;
 
   @ManyToOne(() => CatalogCategoryEntity, (category) => category.catalogItems, {
     onDelete: "RESTRICT",
   })
   @JoinColumn({ name: "category_id" })
-  category!: CatalogCategoryEntity;
+  category!: Relation<CatalogCategoryEntity>;
 }

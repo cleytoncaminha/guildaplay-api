@@ -7,9 +7,10 @@ import {
   PrimaryGeneratedColumn,
   Unique,
 } from "typeorm";
+import type { Relation } from "typeorm";
 
-import { CatalogItemRelationType } from "../enums/catalog.enums";
-import { CatalogItemEntity } from "./catalog-item.entity";
+import { CatalogItemRelationType } from "../enums/catalog.enums.js";
+import { CatalogItemEntity } from "./catalog-item.entity.js";
 
 @Entity({ name: "catalog_item_relations" })
 @Unique("UQ_catalog_item_relations_source_target_type", [
@@ -38,11 +39,11 @@ export class CatalogItemRelationEntity {
     onDelete: "RESTRICT",
   })
   @JoinColumn({ name: "source_item_id" })
-  sourceItem!: CatalogItemEntity;
+  sourceItem!: Relation<CatalogItemEntity>;
 
   @ManyToOne(() => CatalogItemEntity, (item) => item.incomingRelations, {
     onDelete: "RESTRICT",
   })
   @JoinColumn({ name: "target_item_id" })
-  targetItem!: CatalogItemEntity;
+  targetItem!: Relation<CatalogItemEntity>;
 }

@@ -8,10 +8,11 @@ import {
   PrimaryGeneratedColumn,
   UpdateDateColumn,
 } from "typeorm";
+import type { Relation } from "typeorm";
 
-import { MediaAssetEntity } from "../../uploads/entities/media-asset.entity";
-import { UserEntity } from "../../users/entities/user.entity";
-import { CatalogItemEntity } from "./catalog-item.entity";
+import { MediaAssetEntity } from "../../uploads/entities/media-asset.entity.js";
+import { UserEntity } from "../../users/entities/user.entity.js";
+import { CatalogItemEntity } from "./catalog-item.entity.js";
 
 export enum CatalogReportTargetType {
   ITEM = "ITEM",
@@ -103,21 +104,21 @@ export class CatalogReportEntity {
 
   @ManyToOne(() => UserEntity, { onDelete: "RESTRICT" })
   @JoinColumn({ name: "reported_by_user_id" })
-  reportedBy!: UserEntity;
+  reportedBy!: Relation<UserEntity>;
 
   @ManyToOne(() => CatalogItemEntity, { onDelete: "RESTRICT" })
   @JoinColumn({ name: "catalog_item_id" })
-  catalogItem!: CatalogItemEntity | null;
+  catalogItem!: Relation<CatalogItemEntity> | null;
 
   @ManyToOne(() => MediaAssetEntity, { onDelete: "RESTRICT" })
   @JoinColumn({ name: "media_asset_id" })
-  mediaAsset!: MediaAssetEntity | null;
+  mediaAsset!: Relation<MediaAssetEntity> | null;
 
   @ManyToOne(() => CatalogItemEntity, { onDelete: "RESTRICT" })
   @JoinColumn({ name: "duplicate_of_catalog_item_id" })
-  duplicateOfCatalogItem!: CatalogItemEntity | null;
+  duplicateOfCatalogItem!: Relation<CatalogItemEntity> | null;
 
   @ManyToOne(() => UserEntity, { onDelete: "RESTRICT" })
   @JoinColumn({ name: "resolved_by_user_id" })
-  resolvedBy!: UserEntity | null;
+  resolvedBy!: Relation<UserEntity> | null;
 }

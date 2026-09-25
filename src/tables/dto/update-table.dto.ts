@@ -12,7 +12,7 @@ import {
   Min,
   MinLength,
 } from "class-validator";
-import { ScheduleFrequency } from "../entities/game-table.entity";
+import { ScheduleFrequency } from "../entities/game-table.entity.js";
 
 const trim = ({ value }: { value: unknown }) =>
   typeof value === "string" ? value.trim() : value;

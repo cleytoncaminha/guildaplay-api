@@ -8,9 +8,10 @@ import {
   PrimaryGeneratedColumn,
   UpdateDateColumn,
 } from "typeorm";
+import type { Relation } from "typeorm";
 
-import { GmProfileEntity } from "../../gm-profiles/entities/gm-profile.entity";
-import { BillingPlanEntity } from "./billing-plan.entity";
+import { GmProfileEntity } from "../../gm-profiles/entities/gm-profile.entity.js";
+import { BillingPlanEntity } from "./billing-plan.entity.js";
 
 export enum GameTableStatus {
   DRAFT = "DRAFT",
@@ -62,7 +63,7 @@ export class GameTableEntity {
   updatedAt!: Date;
   @ManyToOne(() => GmProfileEntity, { onDelete: "RESTRICT" })
   @JoinColumn({ name: "gm_profile_id" })
-  gmProfile!: GmProfileEntity;
+  gmProfile!: Relation<GmProfileEntity>;
   @OneToMany(() => BillingPlanEntity, (plan) => plan.gameTable)
-  billingPlans!: BillingPlanEntity[];
+  billingPlans!: Relation<BillingPlanEntity[]>;
 }

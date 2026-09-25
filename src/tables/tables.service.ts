@@ -5,26 +5,26 @@ import {
 } from "@nestjs/common";
 import { InjectRepository } from "@nestjs/typeorm";
 import { DataSource, In, Repository } from "typeorm";
-import { AuditLogEntity } from "../audit/audit-log.entity";
-import { AuthenticatedUser } from "../auth/auth.types";
-import { GmProfileEntity } from "../gm-profiles/entities/gm-profile.entity";
-import { StorageService } from "../storage/storage.service";
+import { AuditLogEntity } from "../audit/audit-log.entity.js";
+import { AuthenticatedUser } from "../auth/auth.types.js";
+import { GmProfileEntity } from "../gm-profiles/entities/gm-profile.entity.js";
+import { StorageService } from "../storage/storage.service.js";
 import {
   MediaAssetEntity,
   MediaStatus,
-} from "../uploads/entities/media-asset.entity";
-import { CreateTableDto } from "./dto/create-table.dto";
-import { UpdateTableDto } from "./dto/update-table.dto";
+} from "../uploads/entities/media-asset.entity.js";
+import { CreateTableDto } from "./dto/create-table.dto.js";
+import { UpdateTableDto } from "./dto/update-table.dto.js";
 import {
   BillingInterval,
   BillingPlanEntity,
   BillingPlanStatus,
-} from "./entities/billing-plan.entity";
+} from "./entities/billing-plan.entity.js";
 import {
   GameTableEntity,
   GameTableStatus,
   ScheduleFrequency,
-} from "./entities/game-table.entity";
+} from "./entities/game-table.entity.js";
 
 @Injectable()
 export class TablesService {

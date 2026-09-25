@@ -6,10 +6,11 @@ import {
   ManyToOne,
   PrimaryGeneratedColumn,
 } from "typeorm";
+import type { Relation } from "typeorm";
 
-import { MediaAssetEntity } from "../../uploads/entities/media-asset.entity";
-import { CatalogItemMediaKind } from "../enums/catalog.enums";
-import { CatalogItemEntity } from "./catalog-item.entity";
+import { MediaAssetEntity } from "../../uploads/entities/media-asset.entity.js";
+import { CatalogItemMediaKind } from "../enums/catalog.enums.js";
+import { CatalogItemEntity } from "./catalog-item.entity.js";
 
 @Entity({ name: "catalog_item_media" })
 export class CatalogItemMediaEntity {
@@ -36,9 +37,9 @@ export class CatalogItemMediaEntity {
     onDelete: "RESTRICT",
   })
   @JoinColumn({ name: "catalog_item_id" })
-  catalogItem!: CatalogItemEntity;
+  catalogItem!: Relation<CatalogItemEntity>;
 
   @ManyToOne(() => MediaAssetEntity, { onDelete: "RESTRICT" })
   @JoinColumn({ name: "media_asset_id" })
-  mediaAsset!: MediaAssetEntity;
+  mediaAsset!: Relation<MediaAssetEntity>;
 }

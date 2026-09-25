@@ -10,7 +10,7 @@ import {
   ensureRequestId,
   type RequestIdResponse,
   type RequestWithId,
-} from "../utils/request-id";
+} from "../utils/request-id.js";
 
 @Injectable()
 export class RequestIdInterceptor implements NestInterceptor {

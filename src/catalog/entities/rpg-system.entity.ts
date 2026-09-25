@@ -8,10 +8,11 @@ import {
   PrimaryGeneratedColumn,
   UpdateDateColumn,
 } from "typeorm";
+import type { Relation } from "typeorm";
 
-import { CatalogStatus } from "../enums/catalog.enums";
-import { CatalogItemSystemEntity } from "./catalog-item-system.entity";
-import { PublisherEntity } from "./publisher.entity";
+import { CatalogStatus } from "../enums/catalog.enums.js";
+import { CatalogItemSystemEntity } from "./catalog-item-system.entity.js";
+import { PublisherEntity } from "./publisher.entity.js";
 
 @Entity({ name: "rpg_systems" })
 export class RpgSystemEntity {
@@ -47,11 +48,11 @@ export class RpgSystemEntity {
     onDelete: "RESTRICT",
   })
   @JoinColumn({ name: "publisher_id" })
-  publisher!: PublisherEntity | null;
+  publisher!: Relation<PublisherEntity> | null;
 
   @OneToMany(
     () => CatalogItemSystemEntity,
     (itemSystem) => itemSystem.rpgSystem,
   )
-  catalogItems!: CatalogItemSystemEntity[];
+  catalogItems!: Relation<CatalogItemSystemEntity[]>;
 }

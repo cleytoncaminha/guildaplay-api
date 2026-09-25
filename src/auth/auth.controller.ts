@@ -13,16 +13,16 @@ import {
 import { ApiBearerAuth, ApiTags } from "@nestjs/swagger";
 import { Throttle, ThrottlerGuard } from "@nestjs/throttler";
 import type { Request, Response } from "express";
-import { CurrentUser, Public } from "./auth.decorators";
-import { AuthService } from "./auth.service";
-import { AuthenticatedUser } from "./auth.types";
+import { CurrentUser, Public } from "./auth.decorators.js";
+import { AuthService } from "./auth.service.js";
+import { AuthenticatedUser } from "./auth.types.js";
 import {
   ForgotPasswordDto,
   LoginDto,
   RegisterDto,
   ResetPasswordDto,
   TokenDto,
-} from "./dto/auth.dto";
+} from "./dto/auth.dto.js";
 @ApiTags("Auth")
 @Controller({ path: "auth", version: "1" })
 export class AuthController {

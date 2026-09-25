@@ -5,9 +5,10 @@ import {
   ManyToOne,
   PrimaryColumn,
 } from "typeorm";
+import type { Relation } from "typeorm";
 
-import { CatalogItemEntity } from "./catalog-item.entity";
-import { RpgSystemEntity } from "./rpg-system.entity";
+import { CatalogItemEntity } from "./catalog-item.entity.js";
+import { RpgSystemEntity } from "./rpg-system.entity.js";
 
 @Entity({ name: "catalog_item_systems" })
 export class CatalogItemSystemEntity {
@@ -23,11 +24,11 @@ export class CatalogItemSystemEntity {
     onDelete: "RESTRICT",
   })
   @JoinColumn({ name: "catalog_item_id" })
-  catalogItem!: CatalogItemEntity;
+  catalogItem!: Relation<CatalogItemEntity>;
 
   @ManyToOne(() => RpgSystemEntity, (system) => system.catalogItems, {
     onDelete: "RESTRICT",
   })
   @JoinColumn({ name: "rpg_system_id" })
-  rpgSystem!: RpgSystemEntity;
+  rpgSystem!: Relation<RpgSystemEntity>;
 }

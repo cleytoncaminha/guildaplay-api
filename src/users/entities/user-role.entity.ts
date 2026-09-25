@@ -5,8 +5,9 @@ import {
   ManyToOne,
   PrimaryColumn,
 } from "typeorm";
+import type { Relation } from "typeorm";
 
-import { UserEntity } from "./user.entity";
+import { UserEntity } from "./user.entity.js";
 
 export enum UserRole {
   USER = "USER",
@@ -32,5 +33,5 @@ export class UserRoleEntity {
 
   @ManyToOne(() => UserEntity, (user) => user.roles, { onDelete: "RESTRICT" })
   @JoinColumn({ name: "user_id", referencedColumnName: "id" })
-  user!: UserEntity;
+  user!: Relation<UserEntity>;
 }

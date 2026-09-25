@@ -6,8 +6,9 @@ import {
   PrimaryGeneratedColumn,
   UpdateDateColumn,
 } from "typeorm";
+import type { Relation } from "typeorm";
 
-import { CatalogItemCreatorEntity } from "./catalog-item-creator.entity";
+import { CatalogItemCreatorEntity } from "./catalog-item-creator.entity.js";
 
 @Entity({ name: "creators" })
 export class CreatorEntity {
@@ -30,5 +31,5 @@ export class CreatorEntity {
     () => CatalogItemCreatorEntity,
     (itemCreator) => itemCreator.creator,
   )
-  catalogItems!: CatalogItemCreatorEntity[];
+  catalogItems!: Relation<CatalogItemCreatorEntity[]>;
 }

@@ -13,16 +13,16 @@ import {
 } from "@nestjs/common";
 import { ApiBearerAuth, ApiTags } from "@nestjs/swagger";
 
-import { CurrentUser } from "../auth/auth.decorators";
-import { AuthenticatedUser } from "../auth/auth.types";
+import { CurrentUser } from "../auth/auth.decorators.js";
+import { AuthenticatedUser } from "../auth/auth.types.js";
 import {
   AddCatalogCollectionItemDto,
   CreateCatalogCollectionDto,
   ListCatalogUserItemsQueryDto,
   UpdateCatalogCollectionDto,
   UpdateCatalogUserItemDto,
-} from "./dto/catalog-personal.dto";
-import { CatalogPersonalService } from "./catalog-personal.service";
+} from "./dto/catalog-personal.dto.js";
+import { CatalogPersonalService } from "./catalog-personal.service.js";
 
 @ApiTags("My Catalog")
 @ApiBearerAuth()

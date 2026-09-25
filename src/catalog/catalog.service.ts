@@ -13,9 +13,9 @@ import {
   Repository,
 } from "typeorm";
 
-import { AuditLogEntity } from "../audit/audit-log.entity";
-import { AuthenticatedUser } from "../auth/auth.types";
-import { StorageService } from "../storage/storage.service";
+import { AuditLogEntity } from "../audit/audit-log.entity.js";
+import { AuthenticatedUser } from "../auth/auth.types.js";
+import { StorageService } from "../storage/storage.service.js";
 import {
   CreateCatalogEditionDto,
   CreateCatalogCategoryDto,
@@ -36,23 +36,23 @@ import {
   UpdateCreatorDto,
   UpdatePublisherDto,
   UpdateRpgSystemDto,
-} from "./dto/catalog-admin.dto";
-import { CreateCatalogItemRelationDto } from "./dto/catalog-item-relation.dto";
-import { CatalogStatus } from "./enums/catalog.enums";
-import { CatalogEditionEntity } from "./entities/catalog-edition.entity";
-import { CatalogCategoryEntity } from "./entities/catalog-category.entity";
-import { CatalogItemAliasEntity } from "./entities/catalog-item-alias.entity";
-import { CatalogItemCategoryEntity } from "./entities/catalog-item-category.entity";
-import { CatalogItemCreatorEntity } from "./entities/catalog-item-creator.entity";
-import { CatalogItemRelationEntity } from "./entities/catalog-item-relation.entity";
-import { CatalogItemSystemEntity } from "./entities/catalog-item-system.entity";
-import { CatalogItemSourceEntity } from "./entities/catalog-item-source.entity";
-import { CatalogItemTagEntity } from "./entities/catalog-item-tag.entity";
-import { CatalogItemEntity } from "./entities/catalog-item.entity";
-import { CatalogTagEntity } from "./entities/catalog-tag.entity";
-import { CreatorEntity } from "./entities/creator.entity";
-import { PublisherEntity } from "./entities/publisher.entity";
-import { RpgSystemEntity } from "./entities/rpg-system.entity";
+} from "./dto/catalog-admin.dto.js";
+import { CreateCatalogItemRelationDto } from "./dto/catalog-item-relation.dto.js";
+import { CatalogStatus } from "./enums/catalog.enums.js";
+import { CatalogEditionEntity } from "./entities/catalog-edition.entity.js";
+import { CatalogCategoryEntity } from "./entities/catalog-category.entity.js";
+import { CatalogItemAliasEntity } from "./entities/catalog-item-alias.entity.js";
+import { CatalogItemCategoryEntity } from "./entities/catalog-item-category.entity.js";
+import { CatalogItemCreatorEntity } from "./entities/catalog-item-creator.entity.js";
+import { CatalogItemRelationEntity } from "./entities/catalog-item-relation.entity.js";
+import { CatalogItemSystemEntity } from "./entities/catalog-item-system.entity.js";
+import { CatalogItemSourceEntity } from "./entities/catalog-item-source.entity.js";
+import { CatalogItemTagEntity } from "./entities/catalog-item-tag.entity.js";
+import { CatalogItemEntity } from "./entities/catalog-item.entity.js";
+import { CatalogTagEntity } from "./entities/catalog-tag.entity.js";
+import { CreatorEntity } from "./entities/creator.entity.js";
+import { PublisherEntity } from "./entities/publisher.entity.js";
+import { RpgSystemEntity } from "./entities/rpg-system.entity.js";
 
 type CatalogItemRelations = CatalogItemEntity & {
   systems: (CatalogItemSystemEntity & { rpgSystem: RpgSystemEntity })[];

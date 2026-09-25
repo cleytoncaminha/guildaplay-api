@@ -11,7 +11,7 @@ import {
   ValidateIf,
 } from "class-validator";
 
-import { CatalogSubmissionType } from "../entities/catalog-submission.entity";
+import { CatalogSubmissionType } from "../entities/catalog-submission.entity.js";
 
 export class CreateCatalogSubmissionDto {
   @ApiProperty({ enum: CatalogSubmissionType })

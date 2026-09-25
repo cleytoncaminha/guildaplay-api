@@ -12,7 +12,7 @@ import {
   CatalogReportReason,
   CatalogReportStatus,
   CatalogReportTargetType,
-} from "../entities/catalog-report.entity";
+} from "../entities/catalog-report.entity.js";
 
 export class CreateCatalogReportDto {
   @ApiProperty({ enum: CatalogReportTargetType })

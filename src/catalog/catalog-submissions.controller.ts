@@ -8,13 +8,13 @@ import {
   Query,
 } from "@nestjs/common";
 import { ApiBearerAuth, ApiTags } from "@nestjs/swagger";
-import { CurrentUser } from "../auth/auth.decorators";
-import { AuthenticatedUser } from "../auth/auth.types";
-import { CatalogSubmissionsService } from "./catalog-submissions.service";
+import { CurrentUser } from "../auth/auth.decorators.js";
+import { AuthenticatedUser } from "../auth/auth.types.js";
+import { CatalogSubmissionsService } from "./catalog-submissions.service.js";
 import {
   CreateCatalogSubmissionDto,
   ListMyCatalogSubmissionsQueryDto,
-} from "./dto/catalog-submission.dto";
+} from "./dto/catalog-submission.dto.js";
 @ApiTags("Catalog Submissions")
 @ApiBearerAuth()
 @Controller({ path: "catalog/submissions", version: "1" })

@@ -8,9 +8,10 @@ import {
   PrimaryGeneratedColumn,
   UpdateDateColumn,
 } from "typeorm";
+import type { Relation } from "typeorm";
 
-import { UserEntity } from "../../users/entities/user.entity";
-import { CatalogCollectionItemEntity } from "./catalog-collection-item.entity";
+import { UserEntity } from "../../users/entities/user.entity.js";
+import { CatalogCollectionItemEntity } from "./catalog-collection-item.entity.js";
 
 @Entity({ name: "catalog_collections" })
 export class CatalogCollectionEntity {
@@ -34,8 +35,8 @@ export class CatalogCollectionEntity {
 
   @ManyToOne(() => UserEntity, { onDelete: "RESTRICT" })
   @JoinColumn({ name: "owner_user_id" })
-  owner!: UserEntity;
+  owner!: Relation<UserEntity>;
 
   @OneToMany(() => CatalogCollectionItemEntity, (item) => item.collection)
-  items!: CatalogCollectionItemEntity[];
+  items!: Relation<CatalogCollectionItemEntity[]>;
 }

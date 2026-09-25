@@ -6,7 +6,8 @@ import {
   ManyToOne,
   PrimaryGeneratedColumn,
 } from "typeorm";
-import { UserEntity } from "../users/entities/user.entity";
+import type { Relation } from "typeorm";
+import { UserEntity } from "../users/entities/user.entity.js";
 @Entity({ name: "audit_logs" })
 export class AuditLogEntity {
   @PrimaryGeneratedColumn("uuid") id!: string;
@@ -22,5 +23,5 @@ export class AuditLogEntity {
   createdAt!: Date;
   @ManyToOne(() => UserEntity, { onDelete: "RESTRICT" })
   @JoinColumn({ name: "actor_user_id" })
-  user!: UserEntity | null;
+  user!: Relation<UserEntity> | null;
 }

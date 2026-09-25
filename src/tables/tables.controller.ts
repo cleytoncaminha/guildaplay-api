@@ -15,15 +15,15 @@ import {
   ApiResponse,
   ApiTags,
 } from "@nestjs/swagger";
-import { CurrentUser, Roles } from "../auth/auth.decorators";
-import { AuthenticatedUser } from "../auth/auth.types";
-import { RolesGuard } from "../auth/roles.guard";
-import { VerifiedEmailGuard } from "../auth/verified-email.guard";
-import { UserRole } from "../users/entities/user-role.entity";
-import { CreateTableDto } from "./dto/create-table.dto";
-import { UpdateTableDto } from "./dto/update-table.dto";
-import { GameTableStatus } from "./entities/game-table.entity";
-import { TablesService } from "./tables.service";
+import { CurrentUser, Roles } from "../auth/auth.decorators.js";
+import { AuthenticatedUser } from "../auth/auth.types.js";
+import { RolesGuard } from "../auth/roles.guard.js";
+import { VerifiedEmailGuard } from "../auth/verified-email.guard.js";
+import { UserRole } from "../users/entities/user-role.entity.js";
+import { CreateTableDto } from "./dto/create-table.dto.js";
+import { UpdateTableDto } from "./dto/update-table.dto.js";
+import { GameTableStatus } from "./entities/game-table.entity.js";
+import { TablesService } from "./tables.service.js";
 @ApiTags("Tables")
 @ApiBearerAuth()
 @Roles(UserRole.GM)

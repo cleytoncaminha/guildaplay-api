@@ -7,8 +7,9 @@ import {
   PrimaryColumn,
   UpdateDateColumn,
 } from "typeorm";
+import type { Relation } from "typeorm";
 
-import { UserEntity } from "../../users/entities/user.entity";
+import { UserEntity } from "../../users/entities/user.entity.js";
 
 @Entity({ name: "auth_credentials" })
 export class AuthCredentialEntity {
@@ -31,5 +32,5 @@ export class AuthCredentialEntity {
     onDelete: "RESTRICT",
   })
   @JoinColumn({ name: "user_id", referencedColumnName: "id" })
-  user!: UserEntity;
+  user!: Relation<UserEntity>;
 }

@@ -1,18 +1,19 @@
 {
   "name": "guildaplay-api",
   "version": "0.1.0",
+  "type": "module",
   "description": "GuildaPlay REST API",
   "scripts": {
     "build": "nest build",
     "dev": "nest start --watch",
     "start": "nest start",
-    "start:prod": "node dist/main",
+    "start:prod": "node dist/main.js",
     "lint": "eslint \"src/**/*.ts\"",
-    "typeorm": "typeorm-ts-node-commonjs",
-    "migration:generate": "typeorm-ts-node-commonjs migration:generate src/database/migrations/InitialAuthSchema -d src/database/data-source.ts",
-    "migration:run": "typeorm-ts-node-commonjs migration:run -d src/database/data-source.ts",
-    "migration:revert": "typeorm-ts-node-commonjs migration:revert -d src/database/data-source.ts",
-    "migration:show": "typeorm-ts-node-commonjs migration:show -d src/database/data-source.ts"
+    "typeorm": "typeorm-ts-node-esm",
+    "migration:generate": "typeorm-ts-node-esm migration:generate src/database/migrations/InitialAuthSchema -d src/database/data-source.ts",
+    "migration:run": "typeorm-ts-node-esm migration:run -d src/database/data-source.ts",
+    "migration:revert": "typeorm-ts-node-esm migration:revert -d src/database/data-source.ts",
+    "migration:show": "typeorm-ts-node-esm migration:show -d src/database/data-source.ts"
   },
   "license": "UNLICENSED",
   "devEngines": {

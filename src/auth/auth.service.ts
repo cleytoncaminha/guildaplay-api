@@ -5,19 +5,22 @@ import {
 } from "@nestjs/common";
 import { InjectRepository } from "@nestjs/typeorm";
 import { DataSource, Repository } from "typeorm";
-import { UserEntity, UserStatus } from "../users/entities/user.entity";
-import { UserRole, UserRoleEntity } from "../users/entities/user-role.entity";
-import { AuditLogEntity } from "../audit/audit-log.entity";
-import { AuthCredentialEntity } from "./entities/auth-credential.entity";
-import { AuthSessionEntity } from "./entities/auth-session.entity";
-import { EmailVerificationTokenEntity } from "./entities/email-verification-token.entity";
-import { PasswordResetTokenEntity } from "./entities/password-reset-token.entity";
-import { GmProfileEntity } from "../gm-profiles/entities/gm-profile.entity";
-import { LoginDto, RegisterDto } from "./dto/auth.dto";
-import { PasswordService } from "./password.service";
-import { SessionService } from "./session.service";
-import { TokenService } from "./token.service";
-import { AuthenticatedUser } from "./auth.types";
+import { UserEntity, UserStatus } from "../users/entities/user.entity.js";
+import {
+  UserRole,
+  UserRoleEntity,
+} from "../users/entities/user-role.entity.js";
+import { AuditLogEntity } from "../audit/audit-log.entity.js";
+import { AuthCredentialEntity } from "./entities/auth-credential.entity.js";
+import { AuthSessionEntity } from "./entities/auth-session.entity.js";
+import { EmailVerificationTokenEntity } from "./entities/email-verification-token.entity.js";
+import { PasswordResetTokenEntity } from "./entities/password-reset-token.entity.js";
+import { GmProfileEntity } from "../gm-profiles/entities/gm-profile.entity.js";
+import { LoginDto, RegisterDto } from "./dto/auth.dto.js";
+import { PasswordService } from "./password.service.js";
+import { SessionService } from "./session.service.js";
+import { TokenService } from "./token.service.js";
+import { AuthenticatedUser } from "./auth.types.js";
 const unauthorized = (code = "UNAUTHORIZED", message = "Não autorizado.") =>
   new UnauthorizedException({ code, message });
 @Injectable()

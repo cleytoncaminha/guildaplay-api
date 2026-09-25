@@ -7,8 +7,9 @@ import {
   ManyToOne,
   PrimaryGeneratedColumn,
 } from "typeorm";
+import type { Relation } from "typeorm";
 
-import { UserEntity } from "../../users/entities/user.entity";
+import { UserEntity } from "../../users/entities/user.entity.js";
 
 @Entity({ name: "email_verification_tokens" })
 @Index("UQ_email_verification_tokens_token_hash", ["tokenHash"], {
@@ -37,5 +38,5 @@ export class EmailVerificationTokenEntity {
     onDelete: "RESTRICT",
   })
   @JoinColumn({ name: "user_id", referencedColumnName: "id" })
-  user!: UserEntity;
+  user!: Relation<UserEntity>;
 }

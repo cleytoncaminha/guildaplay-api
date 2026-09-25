@@ -1,8 +1,8 @@
 import "dotenv/config";
 import { DataSource } from "typeorm";
 
-import { validateEnvironment } from "../config/env.validation";
-import { createTypeOrmOptions } from "./typeorm.config";
+import { validateEnvironment } from "../config/env.validation.js";
+import { createTypeOrmOptions } from "./typeorm.config.js";
 
 const environment = validateEnvironment(process.env);
 

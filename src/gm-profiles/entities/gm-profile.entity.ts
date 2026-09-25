@@ -8,8 +8,9 @@ import {
   Unique,
   UpdateDateColumn,
 } from "typeorm";
+import type { Relation } from "typeorm";
 
-import { UserEntity } from "../../users/entities/user.entity";
+import { UserEntity } from "../../users/entities/user.entity.js";
 
 export enum GmProfileStatus {
   PENDING = "PENDING",
@@ -48,5 +49,5 @@ export class GmProfileEntity {
 
   @OneToOne(() => UserEntity, { onDelete: "RESTRICT" })
   @JoinColumn({ name: "user_id", referencedColumnName: "id" })
-  user!: UserEntity;
+  user!: Relation<UserEntity>;
 }

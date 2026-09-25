@@ -6,20 +6,20 @@ import {
 } from "@nestjs/common";
 import { DataSource, EntityManager } from "typeorm";
 
-import { AuditLogEntity } from "../audit/audit-log.entity";
-import { AuthenticatedUser } from "../auth/auth.types";
+import { AuditLogEntity } from "../audit/audit-log.entity.js";
+import { AuthenticatedUser } from "../auth/auth.types.js";
 import {
   AddCatalogCollectionItemDto,
   CreateCatalogCollectionDto,
   ListCatalogUserItemsQueryDto,
   UpdateCatalogCollectionDto,
   UpdateCatalogUserItemDto,
-} from "./dto/catalog-personal.dto";
-import { CatalogStatus } from "./enums/catalog.enums";
-import { CatalogCollectionItemEntity } from "./entities/catalog-collection-item.entity";
-import { CatalogCollectionEntity } from "./entities/catalog-collection.entity";
-import { CatalogItemEntity } from "./entities/catalog-item.entity";
-import { CatalogUserItemEntity } from "./entities/catalog-user-item.entity";
+} from "./dto/catalog-personal.dto.js";
+import { CatalogStatus } from "./enums/catalog.enums.js";
+import { CatalogCollectionItemEntity } from "./entities/catalog-collection-item.entity.js";
+import { CatalogCollectionEntity } from "./entities/catalog-collection.entity.js";
+import { CatalogItemEntity } from "./entities/catalog-item.entity.js";
+import { CatalogUserItemEntity } from "./entities/catalog-user-item.entity.js";
 
 @Injectable()
 export class CatalogPersonalService {

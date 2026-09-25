@@ -1,18 +1,18 @@
 import { Injectable, NotFoundException } from "@nestjs/common";
 import { InjectRepository } from "@nestjs/typeorm";
 import { DataSource, Repository } from "typeorm";
-import { AuditLogEntity } from "../audit/audit-log.entity";
-import { AuthenticatedUser } from "../auth/auth.types";
+import { AuditLogEntity } from "../audit/audit-log.entity.js";
+import { AuthenticatedUser } from "../auth/auth.types.js";
 import {
   CreateCatalogSubmissionDto,
   ListMyCatalogSubmissionsQueryDto,
-} from "./dto/catalog-submission.dto";
-import { CatalogItemEntity } from "./entities/catalog-item.entity";
+} from "./dto/catalog-submission.dto.js";
+import { CatalogItemEntity } from "./entities/catalog-item.entity.js";
 import {
   CatalogSubmissionEntity,
   CatalogSubmissionStatus,
   CatalogSubmissionType,
-} from "./entities/catalog-submission.entity";
+} from "./entities/catalog-submission.entity.js";
 
 @Injectable()
 export class CatalogSubmissionsService {

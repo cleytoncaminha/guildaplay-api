@@ -6,21 +6,22 @@ import {
   PrimaryGeneratedColumn,
   UpdateDateColumn,
 } from "typeorm";
+import type { Relation } from "typeorm";
 
 import {
   CatalogExperienceLevel,
   CatalogItemType,
   CatalogStatus,
-} from "../enums/catalog.enums";
-import { CatalogEditionEntity } from "./catalog-edition.entity";
-import { CatalogItemAliasEntity } from "./catalog-item-alias.entity";
-import { CatalogItemCategoryEntity } from "./catalog-item-category.entity";
-import { CatalogItemCreatorEntity } from "./catalog-item-creator.entity";
-import { CatalogItemMediaEntity } from "./catalog-item-media.entity";
-import { CatalogItemRelationEntity } from "./catalog-item-relation.entity";
-import { CatalogItemSourceEntity } from "./catalog-item-source.entity";
-import { CatalogItemSystemEntity } from "./catalog-item-system.entity";
-import { CatalogItemTagEntity } from "./catalog-item-tag.entity";
+} from "../enums/catalog.enums.js";
+import { CatalogEditionEntity } from "./catalog-edition.entity.js";
+import { CatalogItemAliasEntity } from "./catalog-item-alias.entity.js";
+import { CatalogItemCategoryEntity } from "./catalog-item-category.entity.js";
+import { CatalogItemCreatorEntity } from "./catalog-item-creator.entity.js";
+import { CatalogItemMediaEntity } from "./catalog-item-media.entity.js";
+import { CatalogItemRelationEntity } from "./catalog-item-relation.entity.js";
+import { CatalogItemSourceEntity } from "./catalog-item-source.entity.js";
+import { CatalogItemSystemEntity } from "./catalog-item-system.entity.js";
+import { CatalogItemTagEntity } from "./catalog-item-tag.entity.js";
 
 @Entity({ name: "catalog_items" })
 export class CatalogItemEntity {
@@ -68,41 +69,41 @@ export class CatalogItemEntity {
   updatedAt!: Date;
 
   @OneToMany(() => CatalogEditionEntity, (edition) => edition.catalogItem)
-  editions!: CatalogEditionEntity[];
+  editions!: Relation<CatalogEditionEntity[]>;
 
   @OneToMany(
     () => CatalogItemSystemEntity,
     (itemSystem) => itemSystem.catalogItem,
   )
-  systems!: CatalogItemSystemEntity[];
+  systems!: Relation<CatalogItemSystemEntity[]>;
 
   @OneToMany(
     () => CatalogItemCreatorEntity,
     (itemCreator) => itemCreator.catalogItem,
   )
-  creators!: CatalogItemCreatorEntity[];
+  creators!: Relation<CatalogItemCreatorEntity[]>;
 
   @OneToMany(
     () => CatalogItemCategoryEntity,
     (category) => category.catalogItem,
   )
-  categories!: CatalogItemCategoryEntity[];
+  categories!: Relation<CatalogItemCategoryEntity[]>;
 
   @OneToMany(() => CatalogItemTagEntity, (tag) => tag.catalogItem)
-  tags!: CatalogItemTagEntity[];
+  tags!: Relation<CatalogItemTagEntity[]>;
 
   @OneToMany(() => CatalogItemAliasEntity, (alias) => alias.catalogItem)
-  aliases!: CatalogItemAliasEntity[];
+  aliases!: Relation<CatalogItemAliasEntity[]>;
 
   @OneToMany(() => CatalogItemSourceEntity, (source) => source.catalogItem)
-  sources!: CatalogItemSourceEntity[];
+  sources!: Relation<CatalogItemSourceEntity[]>;
 
   @OneToMany(() => CatalogItemMediaEntity, (media) => media.catalogItem)
-  media!: CatalogItemMediaEntity[];
+  media!: Relation<CatalogItemMediaEntity[]>;
 
   @OneToMany(() => CatalogItemRelationEntity, (relation) => relation.sourceItem)
-  outgoingRelations!: CatalogItemRelationEntity[];
+  outgoingRelations!: Relation<CatalogItemRelationEntity[]>;
 
   @OneToMany(() => CatalogItemRelationEntity, (relation) => relation.targetItem)
-  incomingRelations!: CatalogItemRelationEntity[];
+  incomingRelations!: Relation<CatalogItemRelationEntity[]>;
 }

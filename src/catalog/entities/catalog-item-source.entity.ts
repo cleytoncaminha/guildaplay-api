@@ -7,8 +7,9 @@ import {
   PrimaryGeneratedColumn,
   UpdateDateColumn,
 } from "typeorm";
+import type { Relation } from "typeorm";
 
-import { CatalogItemEntity } from "./catalog-item.entity";
+import { CatalogItemEntity } from "./catalog-item.entity.js";
 
 @Entity({ name: "catalog_item_sources" })
 export class CatalogItemSourceEntity {
@@ -30,5 +31,5 @@ export class CatalogItemSourceEntity {
     onDelete: "RESTRICT",
   })
   @JoinColumn({ name: "catalog_item_id" })
-  catalogItem!: CatalogItemEntity;
+  catalogItem!: Relation<CatalogItemEntity>;
 }

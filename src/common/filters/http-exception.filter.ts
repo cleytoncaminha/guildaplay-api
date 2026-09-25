@@ -1,4 +1,4 @@
-﻿import {
+import {
   ArgumentsHost,
   Catch,
   ExceptionFilter,
@@ -8,7 +8,7 @@
 } from "@nestjs/common";
 import type { Response } from "express";
 
-import type { RequestWithId } from "../utils/request-id";
+import type { RequestWithId } from "../utils/request-id.js";
 
 type ExceptionResponse = {
   code?: string;

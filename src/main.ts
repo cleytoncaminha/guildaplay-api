@@ -6,15 +6,15 @@ import type { NextFunction } from "express";
 import helmet from "helmet";
 import cookieParser from "cookie-parser";
 
-import { AppModule } from "./app.module";
-import type { EnvironmentVariables } from "./config/env.validation";
-import { HttpExceptionFilter } from "./common/filters/http-exception.filter";
-import { RequestIdInterceptor } from "./common/interceptors/request-id.interceptor";
+import { AppModule } from "./app.module.js";
+import type { EnvironmentVariables } from "./config/env.validation.js";
+import { HttpExceptionFilter } from "./common/filters/http-exception.filter.js";
+import { RequestIdInterceptor } from "./common/interceptors/request-id.interceptor.js";
 import {
   ensureRequestId,
   type RequestIdResponse,
   type RequestWithId,
-} from "./common/utils/request-id";
+} from "./common/utils/request-id.js";
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);

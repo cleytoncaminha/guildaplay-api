@@ -8,10 +8,11 @@ import {
   PrimaryGeneratedColumn,
   UpdateDateColumn,
 } from "typeorm";
+import type { Relation } from "typeorm";
 
-import { UserEntity } from "../../users/entities/user.entity";
-import { CatalogStatus } from "../enums/catalog.enums";
-import { CatalogFeaturedListItemEntity } from "./catalog-featured-list-item.entity";
+import { UserEntity } from "../../users/entities/user.entity.js";
+import { CatalogStatus } from "../enums/catalog.enums.js";
+import { CatalogFeaturedListItemEntity } from "./catalog-featured-list-item.entity.js";
 
 @Entity({ name: "catalog_featured_lists" })
 export class CatalogFeaturedListEntity {
@@ -45,8 +46,8 @@ export class CatalogFeaturedListEntity {
 
   @ManyToOne(() => UserEntity, { onDelete: "RESTRICT" })
   @JoinColumn({ name: "curated_by_user_id" })
-  curatedBy!: UserEntity;
+  curatedBy!: Relation<UserEntity>;
 
   @OneToMany(() => CatalogFeaturedListItemEntity, (item) => item.list)
-  items!: CatalogFeaturedListItemEntity[];
+  items!: Relation<CatalogFeaturedListItemEntity[]>;
 }

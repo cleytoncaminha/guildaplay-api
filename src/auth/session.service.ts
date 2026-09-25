@@ -2,8 +2,8 @@ import { Injectable } from "@nestjs/common";
 import { InjectRepository } from "@nestjs/typeorm";
 import { randomUUID } from "node:crypto";
 import { Repository } from "typeorm";
-import { AuthSessionEntity } from "./entities/auth-session.entity";
-import { TokenService } from "./token.service";
+import { AuthSessionEntity } from "./entities/auth-session.entity.js";
+import { TokenService } from "./token.service.js";
 @Injectable()
 export class SessionService {
   constructor(
