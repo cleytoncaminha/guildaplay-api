@@ -7,7 +7,7 @@ import {
 } from "typeorm";
 import type { Relation } from "typeorm";
 
-import { UserEntity } from "./user.entity.js";
+import { UserEntity } from "./user.entity";
 
 export enum UserRole {
   USER = "USER",

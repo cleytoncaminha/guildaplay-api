@@ -9,7 +9,7 @@ import {
 } from "typeorm";
 import type { Relation } from "typeorm";
 
-import { CatalogItemEntity } from "./catalog-item.entity.js";
+import { CatalogItemEntity } from "./catalog-item.entity";
 
 @Entity({ name: "catalog_item_aliases" })
 export class CatalogItemAliasEntity {

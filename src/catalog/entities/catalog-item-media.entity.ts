@@ -8,9 +8,9 @@ import {
 } from "typeorm";
 import type { Relation } from "typeorm";
 
-import { MediaAssetEntity } from "../../uploads/entities/media-asset.entity.js";
-import { CatalogItemMediaKind } from "../enums/catalog.enums.js";
-import { CatalogItemEntity } from "./catalog-item.entity.js";
+import { MediaAssetEntity } from "../../uploads/entities/media-asset.entity";
+import { CatalogItemMediaKind } from "../enums/catalog.enums";
+import { CatalogItemEntity } from "./catalog-item.entity";
 
 @Entity({ name: "catalog_item_media" })
 export class CatalogItemMediaEntity {

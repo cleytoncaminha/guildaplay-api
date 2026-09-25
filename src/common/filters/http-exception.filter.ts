@@ -8,7 +8,7 @@ import {
 } from "@nestjs/common";
 import type { Response } from "express";
 
-import type { RequestWithId } from "../utils/request-id.js";
+import type { RequestWithId } from "../utils/request-id";
 
 type ExceptionResponse = {
   code?: string;

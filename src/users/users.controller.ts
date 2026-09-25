@@ -6,10 +6,10 @@ import {
   ApiTags,
 } from "@nestjs/swagger";
 
-import { CurrentUser } from "../auth/auth.decorators.js";
-import { AuthenticatedUser } from "../auth/auth.types.js";
-import { UpdateMeDto } from "./dto/update-me.dto.js";
-import { UsersService } from "./users.service.js";
+import { CurrentUser } from "../auth/auth.decorators";
+import { AuthenticatedUser } from "../auth/auth.types";
+import { UpdateMeDto } from "./dto/update-me.dto";
+import { UsersService } from "./users.service";
 
 @ApiTags("Users")
 @ApiBearerAuth()

@@ -6,19 +6,19 @@ import {
 } from "@nestjs/common";
 import { DataSource, EntityManager } from "typeorm";
 
-import { AuditLogEntity } from "../audit/audit-log.entity.js";
-import { AuthenticatedUser } from "../auth/auth.types.js";
+import { AuditLogEntity } from "../audit/audit-log.entity";
+import { AuthenticatedUser } from "../auth/auth.types";
 import {
   ListCatalogReviewsQueryDto,
   ModerateCatalogReviewDto,
   UpsertCatalogReviewDto,
-} from "./dto/catalog-review.dto.js";
-import { CatalogStatus } from "./enums/catalog.enums.js";
-import { CatalogItemEntity } from "./entities/catalog-item.entity.js";
+} from "./dto/catalog-review.dto";
+import { CatalogStatus } from "./enums/catalog.enums";
+import { CatalogItemEntity } from "./entities/catalog-item.entity";
 import {
   CatalogItemReviewEntity,
   CatalogReviewStatus,
-} from "./entities/catalog-item-review.entity.js";
+} from "./entities/catalog-item-review.entity";
 
 export type CatalogReviewSummary = {
   averageRating: number | null;

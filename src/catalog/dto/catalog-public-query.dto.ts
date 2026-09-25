@@ -14,7 +14,7 @@ import {
 import {
   CatalogExperienceLevel,
   CatalogItemType,
-} from "../enums/catalog.enums.js";
+} from "../enums/catalog.enums";
 
 export enum CatalogSort {
   TITLE = "TITLE",

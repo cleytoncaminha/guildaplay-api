@@ -9,8 +9,8 @@ import {
 } from "typeorm";
 import type { Relation } from "typeorm";
 
-import { CatalogItemEntity } from "./catalog-item.entity.js";
-import { CatalogFeaturedListEntity } from "./catalog-featured-list.entity.js";
+import { CatalogItemEntity } from "./catalog-item.entity";
+import { CatalogFeaturedListEntity } from "./catalog-featured-list.entity";
 
 @Entity({ name: "catalog_featured_list_items" })
 @Check("CHK_catalog_featured_list_items_position", `"position" >= 0`)

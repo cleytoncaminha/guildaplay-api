@@ -11,8 +11,8 @@ import {
 } from "typeorm";
 import type { Relation } from "typeorm";
 
-import { UserEntity } from "../../users/entities/user.entity.js";
-import { CatalogItemEntity } from "./catalog-item.entity.js";
+import { UserEntity } from "../../users/entities/user.entity";
+import { CatalogItemEntity } from "./catalog-item.entity";
 
 export enum CatalogReviewStatus {
   PENDING = "PENDING",

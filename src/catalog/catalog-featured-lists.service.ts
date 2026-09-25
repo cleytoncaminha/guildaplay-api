@@ -6,18 +6,18 @@ import {
 } from "@nestjs/common";
 import { DataSource, EntityManager } from "typeorm";
 
-import { AuditLogEntity } from "../audit/audit-log.entity.js";
-import { AuthenticatedUser } from "../auth/auth.types.js";
+import { AuditLogEntity } from "../audit/audit-log.entity";
+import { AuthenticatedUser } from "../auth/auth.types";
 import {
   AddCatalogFeaturedListItemDto,
   CreateCatalogFeaturedListDto,
   ListCatalogFeaturedListsQueryDto,
   UpdateCatalogFeaturedListDto,
-} from "./dto/catalog-featured-list.dto.js";
-import { CatalogStatus } from "./enums/catalog.enums.js";
-import { CatalogFeaturedListItemEntity } from "./entities/catalog-featured-list-item.entity.js";
-import { CatalogFeaturedListEntity } from "./entities/catalog-featured-list.entity.js";
-import { CatalogItemEntity } from "./entities/catalog-item.entity.js";
+} from "./dto/catalog-featured-list.dto";
+import { CatalogStatus } from "./enums/catalog.enums";
+import { CatalogFeaturedListItemEntity } from "./entities/catalog-featured-list-item.entity";
+import { CatalogFeaturedListEntity } from "./entities/catalog-featured-list.entity";
+import { CatalogItemEntity } from "./entities/catalog-item.entity";
 
 @Injectable()
 export class CatalogFeaturedListsService {

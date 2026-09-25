@@ -4,11 +4,11 @@ import { PassportStrategy } from "@nestjs/passport";
 import { ExtractJwt, Strategy } from "passport-jwt";
 import { InjectRepository } from "@nestjs/typeorm";
 import { Repository } from "typeorm";
-import { EnvironmentVariables } from "../config/env.validation.js";
-import { UserEntity, UserStatus } from "../users/entities/user.entity.js";
-import { UserRoleEntity } from "../users/entities/user-role.entity.js";
-import { JwtPayload, AuthenticatedUser } from "./auth.types.js";
-import { AuthSessionEntity } from "./entities/auth-session.entity.js";
+import { EnvironmentVariables } from "../config/env.validation";
+import { UserEntity, UserStatus } from "../users/entities/user.entity";
+import { UserRoleEntity } from "../users/entities/user-role.entity";
+import { JwtPayload, AuthenticatedUser } from "./auth.types";
+import { AuthSessionEntity } from "./entities/auth-session.entity";
 @Injectable()
 export class JwtStrategy extends PassportStrategy(Strategy) {
   constructor(

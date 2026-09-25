@@ -11,13 +11,13 @@ import {
 } from "@nestjs/common";
 import { ApiBearerAuth, ApiTags } from "@nestjs/swagger";
 
-import { CurrentUser } from "../auth/auth.decorators.js";
-import { AuthenticatedUser } from "../auth/auth.types.js";
+import { CurrentUser } from "../auth/auth.decorators";
+import { AuthenticatedUser } from "../auth/auth.types";
 import {
   ListCatalogReviewsQueryDto,
   UpsertCatalogReviewDto,
-} from "./dto/catalog-review.dto.js";
-import { CatalogReviewsService } from "./catalog-reviews.service.js";
+} from "./dto/catalog-review.dto";
+import { CatalogReviewsService } from "./catalog-reviews.service";
 
 @ApiTags("Catalog Reviews")
 @ApiBearerAuth()

@@ -10,8 +10,8 @@ import {
 } from "typeorm";
 import type { Relation } from "typeorm";
 
-import { GmProfileEntity } from "../../gm-profiles/entities/gm-profile.entity.js";
-import { BillingPlanEntity } from "./billing-plan.entity.js";
+import { GmProfileEntity } from "../../gm-profiles/entities/gm-profile.entity";
+import { BillingPlanEntity } from "./billing-plan.entity";
 
 export enum GameTableStatus {
   DRAFT = "DRAFT",

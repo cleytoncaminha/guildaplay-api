@@ -2,18 +2,18 @@ import { Injectable, NotFoundException } from "@nestjs/common";
 import { InjectRepository } from "@nestjs/typeorm";
 import { In, Repository } from "typeorm";
 
-import { StorageService } from "../storage/storage.service.js";
+import { StorageService } from "../storage/storage.service";
 import {
   CatalogPublicQueryDto,
   CatalogSort,
   SortOrder,
-} from "./dto/catalog-public-query.dto.js";
-import { CatalogStatus } from "./enums/catalog.enums.js";
-import { CatalogItemEntity } from "./entities/catalog-item.entity.js";
+} from "./dto/catalog-public-query.dto";
+import { CatalogStatus } from "./enums/catalog.enums";
+import { CatalogItemEntity } from "./entities/catalog-item.entity";
 import {
   CatalogReviewSummary,
   CatalogReviewsService,
-} from "./catalog-reviews.service.js";
+} from "./catalog-reviews.service";
 
 @Injectable()
 export class CatalogPublicService {

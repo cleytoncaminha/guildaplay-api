@@ -9,7 +9,7 @@ import {
 } from "typeorm";
 import type { Relation } from "typeorm";
 
-import { UserEntity } from "../../users/entities/user.entity.js";
+import { UserEntity } from "../../users/entities/user.entity";
 
 @Entity({ name: "password_reset_tokens" })
 @Index("UQ_password_reset_tokens_token_hash", ["tokenHash"], {

@@ -2,8 +2,8 @@ import { Module } from "@nestjs/common";
 import { ConfigService } from "@nestjs/config";
 import { TypeOrmModule } from "@nestjs/typeorm";
 
-import type { EnvironmentVariables } from "../config/env.validation.js";
-import { createTypeOrmOptions } from "./typeorm.config.js";
+import type { EnvironmentVariables } from "../config/env.validation";
+import { createTypeOrmOptions } from "./typeorm.config";
 
 @Module({
   imports: [

@@ -8,25 +8,25 @@ import {
 import { InjectRepository } from "@nestjs/typeorm";
 import { randomUUID } from "crypto";
 import { DataSource, Repository } from "typeorm";
-import { AuditLogEntity } from "../audit/audit-log.entity.js";
-import { AuthenticatedUser } from "../auth/auth.types.js";
-import { UserRole } from "../users/entities/user-role.entity.js";
-import { CatalogItemMediaKind } from "../catalog/enums/catalog.enums.js";
-import { CatalogItemMediaEntity } from "../catalog/entities/catalog-item-media.entity.js";
-import { CatalogItemEntity } from "../catalog/entities/catalog-item.entity.js";
-import { GmProfileEntity } from "../gm-profiles/entities/gm-profile.entity.js";
-import { StorageService } from "../storage/storage.service.js";
+import { AuditLogEntity } from "../audit/audit-log.entity";
+import { AuthenticatedUser } from "../auth/auth.types";
+import { UserRole } from "../users/entities/user-role.entity";
+import { CatalogItemMediaKind } from "../catalog/enums/catalog.enums";
+import { CatalogItemMediaEntity } from "../catalog/entities/catalog-item-media.entity";
+import { CatalogItemEntity } from "../catalog/entities/catalog-item.entity";
+import { GmProfileEntity } from "../gm-profiles/entities/gm-profile.entity";
+import { StorageService } from "../storage/storage.service";
 import {
   GameTableEntity,
   GameTableStatus,
-} from "../tables/entities/game-table.entity.js";
+} from "../tables/entities/game-table.entity";
 import {
   MediaAssetEntity,
   MediaPurpose,
   MediaStatus,
-} from "../uploads/entities/media-asset.entity.js";
-import { UserEntity } from "../users/entities/user.entity.js";
-import { UploadUrlDto } from "./dto/media.dto.js";
+} from "../uploads/entities/media-asset.entity";
+import { UserEntity } from "../users/entities/user.entity";
+import { UploadUrlDto } from "./dto/media.dto";
 
 const ALLOWED_IMAGE_MIME_TYPES = ["image/jpeg", "image/png", "image/webp"];
 const MAX_UPLOAD_BYTES: Record<MediaPurpose, number> = {

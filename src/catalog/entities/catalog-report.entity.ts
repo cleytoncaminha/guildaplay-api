@@ -10,9 +10,9 @@ import {
 } from "typeorm";
 import type { Relation } from "typeorm";
 
-import { MediaAssetEntity } from "../../uploads/entities/media-asset.entity.js";
-import { UserEntity } from "../../users/entities/user.entity.js";
-import { CatalogItemEntity } from "./catalog-item.entity.js";
+import { MediaAssetEntity } from "../../uploads/entities/media-asset.entity";
+import { UserEntity } from "../../users/entities/user.entity";
+import { CatalogItemEntity } from "./catalog-item.entity";
 
 export enum CatalogReportTargetType {
   ITEM = "ITEM",

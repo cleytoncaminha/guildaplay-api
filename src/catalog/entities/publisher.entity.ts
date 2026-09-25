@@ -8,8 +8,8 @@ import {
 } from "typeorm";
 import type { Relation } from "typeorm";
 
-import { CatalogEditionEntity } from "./catalog-edition.entity.js";
-import { RpgSystemEntity } from "./rpg-system.entity.js";
+import { CatalogEditionEntity } from "./catalog-edition.entity";
+import { RpgSystemEntity } from "./rpg-system.entity";
 
 @Entity({ name: "publishers" })
 export class PublisherEntity {

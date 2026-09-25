@@ -2,16 +2,16 @@ import { Injectable } from "@nestjs/common";
 import { InjectRepository } from "@nestjs/typeorm";
 import { DataSource, Repository } from "typeorm";
 
-import { AuditLogEntity } from "../audit/audit-log.entity.js";
-import { AuthenticatedUser } from "../auth/auth.types.js";
-import { UserRoleEntity } from "./entities/user-role.entity.js";
-import { UserEntity } from "./entities/user.entity.js";
-import { UpdateMeDto } from "./dto/update-me.dto.js";
+import { AuditLogEntity } from "../audit/audit-log.entity";
+import { AuthenticatedUser } from "../auth/auth.types";
+import { UserRoleEntity } from "./entities/user-role.entity";
+import { UserEntity } from "./entities/user.entity";
+import { UpdateMeDto } from "./dto/update-me.dto";
 import {
   MediaAssetEntity,
   MediaStatus,
-} from "../uploads/entities/media-asset.entity.js";
-import { StorageService } from "../storage/storage.service.js";
+} from "../uploads/entities/media-asset.entity";
+import { StorageService } from "../storage/storage.service";
 
 @Injectable()
 export class UsersService {

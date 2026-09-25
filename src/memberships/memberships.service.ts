@@ -5,14 +5,14 @@ import {
 } from "@nestjs/common";
 import { InjectRepository } from "@nestjs/typeorm";
 import { DataSource, In, Repository } from "typeorm";
-import { AuditLogEntity } from "../audit/audit-log.entity.js";
-import { AuthenticatedUser } from "../auth/auth.types.js";
-import { GameTableEntity } from "../tables/entities/game-table.entity.js";
-import { UserEntity } from "../users/entities/user.entity.js";
+import { AuditLogEntity } from "../audit/audit-log.entity";
+import { AuthenticatedUser } from "../auth/auth.types";
+import { GameTableEntity } from "../tables/entities/game-table.entity";
+import { UserEntity } from "../users/entities/user.entity";
 import {
   TableMemberEntity,
   TableMemberStatus,
-} from "./entities/table-member.entity.js";
+} from "./entities/table-member.entity";
 @Injectable()
 export class MembershipsService {
   constructor(

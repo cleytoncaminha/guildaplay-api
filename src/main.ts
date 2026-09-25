@@ -6,15 +6,15 @@ import type { NextFunction, RequestHandler } from "express";
 import * as helmet from "helmet";
 import * as cookieParser from "cookie-parser";
 
-import { AppModule } from "./app.module.js";
-import type { EnvironmentVariables } from "./config/env.validation.js";
-import { HttpExceptionFilter } from "./common/filters/http-exception.filter.js";
-import { RequestIdInterceptor } from "./common/interceptors/request-id.interceptor.js";
+import { AppModule } from "./app.module";
+import type { EnvironmentVariables } from "./config/env.validation";
+import { HttpExceptionFilter } from "./common/filters/http-exception.filter";
+import { RequestIdInterceptor } from "./common/interceptors/request-id.interceptor";
 import {
   ensureRequestId,
   type RequestIdResponse,
   type RequestWithId,
-} from "./common/utils/request-id.js";
+} from "./common/utils/request-id";
 
 type MiddlewareFactory = () => RequestHandler;
 

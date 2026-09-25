@@ -10,8 +10,8 @@ import {
 } from "typeorm";
 import type { Relation } from "typeorm";
 
-import { UserEntity } from "../../users/entities/user.entity.js";
-import { CatalogCollectionItemEntity } from "./catalog-collection-item.entity.js";
+import { UserEntity } from "../../users/entities/user.entity";
+import { CatalogCollectionItemEntity } from "./catalog-collection-item.entity";
 
 @Entity({ name: "catalog_collections" })
 export class CatalogCollectionEntity {

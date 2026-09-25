@@ -8,7 +8,7 @@ import {
 } from "typeorm";
 import type { Relation } from "typeorm";
 
-import { GameTableEntity } from "./game-table.entity.js";
+import { GameTableEntity } from "./game-table.entity";
 
 export enum BillingInterval {
   MONTHLY = "MONTHLY",

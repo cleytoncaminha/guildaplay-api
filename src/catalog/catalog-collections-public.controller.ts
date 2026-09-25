@@ -1,8 +1,8 @@
 import { Controller, Get, Param, ParseUUIDPipe } from "@nestjs/common";
 import { ApiOperation, ApiResponse, ApiTags } from "@nestjs/swagger";
 
-import { Public } from "../auth/auth.decorators.js";
-import { CatalogPersonalService } from "./catalog-personal.service.js";
+import { Public } from "../auth/auth.decorators";
+import { CatalogPersonalService } from "./catalog-personal.service";
 
 @ApiTags("Catalog")
 @Public()

@@ -1,7 +1,6 @@
 {
   "name": "guildaplay-api",
   "version": "0.1.0",
-  "type": "module",
   "description": "GuildaPlay REST API",
   "scripts": {
     "build": "nest build",
@@ -9,11 +8,11 @@
     "start": "nest start",
     "start:prod": "node dist/main.js",
     "lint": "eslint \"src/**/*.ts\"",
-    "typeorm": "typeorm-ts-node-esm",
-    "migration:generate": "typeorm-ts-node-esm migration:generate src/database/migrations/InitialAuthSchema -d src/database/data-source.ts",
-    "migration:run": "typeorm-ts-node-esm migration:run -d src/database/data-source.ts",
-    "migration:revert": "typeorm-ts-node-esm migration:revert -d src/database/data-source.ts",
-    "migration:show": "typeorm-ts-node-esm migration:show -d src/database/data-source.ts"
+    "typeorm": "typeorm-ts-node-commonjs",
+    "migration:generate": "typeorm-ts-node-commonjs migration:generate src/database/migrations/InitialAuthSchema -d src/database/data-source.ts",
+    "migration:run": "typeorm-ts-node-commonjs migration:run -d src/database/data-source.ts",
+    "migration:revert": "typeorm-ts-node-commonjs migration:revert -d src/database/data-source.ts",
+    "migration:show": "typeorm-ts-node-commonjs migration:show -d src/database/data-source.ts"
   },
   "license": "UNLICENSED",
   "devEngines": {
@@ -30,15 +29,15 @@
   "dependencies": {
     "@aws-sdk/client-s3": "^3.1137.0",
     "@aws-sdk/s3-request-presigner": "^3.1137.0",
-    "@nestjs/common": "^12.0.4",
-    "@nestjs/config": "^12.0.0",
-    "@nestjs/core": "^12.0.4",
-    "@nestjs/jwt": "^12.0.2",
-    "@nestjs/passport": "^12.0.0",
-    "@nestjs/platform-express": "^12.0.4",
-    "@nestjs/swagger": "^12.0.1",
-    "@nestjs/throttler": "^6.7.0",
-    "@nestjs/typeorm": "^12.0.1",
+    "@nestjs/common": "^11.2.6",
+    "@nestjs/config": "^4.0.4",
+    "@nestjs/core": "^11.2.6",
+    "@nestjs/jwt": "^11.0.2",
+    "@nestjs/passport": "^11.0.5",
+    "@nestjs/platform-express": "^11.2.6",
+    "@nestjs/swagger": "^11.4.7",
+    "@nestjs/throttler": "^6.7.1",
+    "@nestjs/typeorm": "^11.0.3",
     "argon2": "^0.45.1",
     "class-transformer": "^0.5.1",
     "class-validator": "^0.15.1",
@@ -55,7 +54,7 @@
   },
   "devDependencies": {
     "@eslint/js": "^10.0.1",
-    "@nestjs/cli": "^12.0.3",
+    "@nestjs/cli": "^11.0.24",
     "@types/cookie-parser": "^1.4.10",
     "@types/express": "^5.0.6",
     "@types/node": "^26.6.2",

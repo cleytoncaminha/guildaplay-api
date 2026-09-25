@@ -8,7 +8,7 @@ import {
   Min,
   ValidateIf,
 } from "class-validator";
-import { MediaPurpose } from "../../uploads/entities/media-asset.entity.js";
+import { MediaPurpose } from "../../uploads/entities/media-asset.entity";
 
 export class UploadUrlDto {
   @ApiProperty({ enum: MediaPurpose, example: MediaPurpose.TABLE_COVER })

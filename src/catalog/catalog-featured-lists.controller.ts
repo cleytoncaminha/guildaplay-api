@@ -13,18 +13,18 @@ import {
 } from "@nestjs/common";
 import { ApiBearerAuth, ApiOperation, ApiTags } from "@nestjs/swagger";
 
-import { CurrentUser, Roles } from "../auth/auth.decorators.js";
-import { AuthenticatedUser } from "../auth/auth.types.js";
-import { RolesGuard } from "../auth/roles.guard.js";
-import { UserRole } from "../users/entities/user-role.entity.js";
+import { CurrentUser, Roles } from "../auth/auth.decorators";
+import { AuthenticatedUser } from "../auth/auth.types";
+import { RolesGuard } from "../auth/roles.guard";
+import { UserRole } from "../users/entities/user-role.entity";
 import {
   AddCatalogFeaturedListItemDto,
   CreateCatalogFeaturedListDto,
   ListCatalogFeaturedListsQueryDto,
   UpdateCatalogFeaturedListDto,
-} from "./dto/catalog-featured-list.dto.js";
-import { CatalogStatus } from "./enums/catalog.enums.js";
-import { CatalogFeaturedListsService } from "./catalog-featured-lists.service.js";
+} from "./dto/catalog-featured-list.dto";
+import { CatalogStatus } from "./enums/catalog.enums";
+import { CatalogFeaturedListsService } from "./catalog-featured-lists.service";
 
 @ApiTags("Catalog Curation")
 @ApiBearerAuth()

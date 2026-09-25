@@ -8,8 +8,8 @@ import {
 import type { Relation } from "typeorm";
 import { Column } from "typeorm";
 
-import { CatalogItemEntity } from "./catalog-item.entity.js";
-import { CatalogCollectionEntity } from "./catalog-collection.entity.js";
+import { CatalogItemEntity } from "./catalog-item.entity";
+import { CatalogCollectionEntity } from "./catalog-collection.entity";
 
 @Entity({ name: "catalog_collection_items" })
 export class CatalogCollectionItemEntity {

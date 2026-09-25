@@ -6,20 +6,20 @@ import {
 } from "@nestjs/common";
 import { DataSource, EntityManager } from "typeorm";
 
-import { AuditLogEntity } from "../audit/audit-log.entity.js";
-import { AuthenticatedUser } from "../auth/auth.types.js";
-import { MediaAssetEntity } from "../uploads/entities/media-asset.entity.js";
+import { AuditLogEntity } from "../audit/audit-log.entity";
+import { AuthenticatedUser } from "../auth/auth.types";
+import { MediaAssetEntity } from "../uploads/entities/media-asset.entity";
 import {
   CreateCatalogReportDto,
   ResolveCatalogReportDto,
-} from "./dto/catalog-report.dto.js";
-import { CatalogItemEntity } from "./entities/catalog-item.entity.js";
+} from "./dto/catalog-report.dto";
+import { CatalogItemEntity } from "./entities/catalog-item.entity";
 import {
   CatalogReportEntity,
   CatalogReportReason,
   CatalogReportStatus,
   CatalogReportTargetType,
-} from "./entities/catalog-report.entity.js";
+} from "./entities/catalog-report.entity";
 
 @Injectable()
 export class CatalogReportsService {

@@ -7,19 +7,13 @@ import {
 import { InjectRepository } from "@nestjs/typeorm";
 import { DataSource, QueryFailedError, Repository } from "typeorm";
 
-import { AuditLogEntity } from "../audit/audit-log.entity.js";
-import { AuthenticatedUser } from "../auth/auth.types.js";
-import {
-  UserRole,
-  UserRoleEntity,
-} from "../users/entities/user-role.entity.js";
-import { UserEntity, UserStatus } from "../users/entities/user.entity.js";
-import { CreateGmProfileDto } from "./dto/create-gm-profile.dto.js";
-import { UpdateGmProfileDto } from "./dto/update-gm-profile.dto.js";
-import {
-  GmProfileEntity,
-  GmProfileStatus,
-} from "./entities/gm-profile.entity.js";
+import { AuditLogEntity } from "../audit/audit-log.entity";
+import { AuthenticatedUser } from "../auth/auth.types";
+import { UserRole, UserRoleEntity } from "../users/entities/user-role.entity";
+import { UserEntity, UserStatus } from "../users/entities/user.entity";
+import { CreateGmProfileDto } from "./dto/create-gm-profile.dto";
+import { UpdateGmProfileDto } from "./dto/update-gm-profile.dto";
+import { GmProfileEntity, GmProfileStatus } from "./entities/gm-profile.entity";
 
 @Injectable()
 export class GmProfilesService {

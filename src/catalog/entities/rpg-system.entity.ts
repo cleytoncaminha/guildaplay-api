@@ -10,9 +10,9 @@ import {
 } from "typeorm";
 import type { Relation } from "typeorm";
 
-import { CatalogStatus } from "../enums/catalog.enums.js";
-import { CatalogItemSystemEntity } from "./catalog-item-system.entity.js";
-import { PublisherEntity } from "./publisher.entity.js";
+import { CatalogStatus } from "../enums/catalog.enums";
+import { CatalogItemSystemEntity } from "./catalog-item-system.entity";
+import { PublisherEntity } from "./publisher.entity";
 
 @Entity({ name: "rpg_systems" })
 export class RpgSystemEntity {

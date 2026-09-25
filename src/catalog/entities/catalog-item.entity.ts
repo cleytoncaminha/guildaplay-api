@@ -12,16 +12,16 @@ import {
   CatalogExperienceLevel,
   CatalogItemType,
   CatalogStatus,
-} from "../enums/catalog.enums.js";
-import { CatalogEditionEntity } from "./catalog-edition.entity.js";
-import { CatalogItemAliasEntity } from "./catalog-item-alias.entity.js";
-import { CatalogItemCategoryEntity } from "./catalog-item-category.entity.js";
-import { CatalogItemCreatorEntity } from "./catalog-item-creator.entity.js";
-import { CatalogItemMediaEntity } from "./catalog-item-media.entity.js";
-import { CatalogItemRelationEntity } from "./catalog-item-relation.entity.js";
-import { CatalogItemSourceEntity } from "./catalog-item-source.entity.js";
-import { CatalogItemSystemEntity } from "./catalog-item-system.entity.js";
-import { CatalogItemTagEntity } from "./catalog-item-tag.entity.js";
+} from "../enums/catalog.enums";
+import { CatalogEditionEntity } from "./catalog-edition.entity";
+import { CatalogItemAliasEntity } from "./catalog-item-alias.entity";
+import { CatalogItemCategoryEntity } from "./catalog-item-category.entity";
+import { CatalogItemCreatorEntity } from "./catalog-item-creator.entity";
+import { CatalogItemMediaEntity } from "./catalog-item-media.entity";
+import { CatalogItemRelationEntity } from "./catalog-item-relation.entity";
+import { CatalogItemSourceEntity } from "./catalog-item-source.entity";
+import { CatalogItemSystemEntity } from "./catalog-item-system.entity";
+import { CatalogItemTagEntity } from "./catalog-item-tag.entity";
 
 @Entity({ name: "catalog_items" })
 export class CatalogItemEntity {

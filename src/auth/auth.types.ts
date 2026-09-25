@@ -1,4 +1,4 @@
-import { UserRole } from "../users/entities/user-role.entity.js";
+import { UserRole } from "../users/entities/user-role.entity";
 export type AuthenticatedUser = {
   id: string;
   sessionId: string;

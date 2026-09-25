@@ -6,20 +6,20 @@ import {
 } from "@nestjs/common";
 import { InjectRepository } from "@nestjs/typeorm";
 import { DataSource, EntityManager, Repository } from "typeorm";
-import { AuditLogEntity } from "../audit/audit-log.entity.js";
-import { AuthenticatedUser } from "../auth/auth.types.js";
-import { ReviewCatalogSubmissionDto } from "./dto/catalog-moderation.dto.js";
+import { AuditLogEntity } from "../audit/audit-log.entity";
+import { AuthenticatedUser } from "../auth/auth.types";
+import { ReviewCatalogSubmissionDto } from "./dto/catalog-moderation.dto";
 import {
   CatalogExperienceLevel,
   CatalogItemType,
   CatalogStatus,
-} from "./enums/catalog.enums.js";
-import { CatalogItemEntity } from "./entities/catalog-item.entity.js";
+} from "./enums/catalog.enums";
+import { CatalogItemEntity } from "./entities/catalog-item.entity";
 import {
   CatalogSubmissionEntity,
   CatalogSubmissionStatus,
   CatalogSubmissionType,
-} from "./entities/catalog-submission.entity.js";
+} from "./entities/catalog-submission.entity";
 
 @Injectable()
 export class CatalogModerationService {

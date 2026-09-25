@@ -8,7 +8,7 @@ import {
 } from "typeorm";
 import type { Relation } from "typeorm";
 
-import { CatalogItemCreatorEntity } from "./catalog-item-creator.entity.js";
+import { CatalogItemCreatorEntity } from "./catalog-item-creator.entity";
 
 @Entity({ name: "creators" })
 export class CreatorEntity {

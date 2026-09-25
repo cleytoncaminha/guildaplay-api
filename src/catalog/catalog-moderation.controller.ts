@@ -9,13 +9,13 @@ import {
   UseGuards,
 } from "@nestjs/common";
 import { ApiBearerAuth, ApiTags } from "@nestjs/swagger";
-import { CurrentUser, Roles } from "../auth/auth.decorators.js";
-import { AuthenticatedUser } from "../auth/auth.types.js";
-import { RolesGuard } from "../auth/roles.guard.js";
-import { UserRole } from "../users/entities/user-role.entity.js";
-import { CatalogModerationService } from "./catalog-moderation.service.js";
-import { ReviewCatalogSubmissionDto } from "./dto/catalog-moderation.dto.js";
-import { CatalogSubmissionStatus } from "./entities/catalog-submission.entity.js";
+import { CurrentUser, Roles } from "../auth/auth.decorators";
+import { AuthenticatedUser } from "../auth/auth.types";
+import { RolesGuard } from "../auth/roles.guard";
+import { UserRole } from "../users/entities/user-role.entity";
+import { CatalogModerationService } from "./catalog-moderation.service";
+import { ReviewCatalogSubmissionDto } from "./dto/catalog-moderation.dto";
+import { CatalogSubmissionStatus } from "./entities/catalog-submission.entity";
 @ApiTags("Catalog Moderation")
 @ApiBearerAuth()
 @Roles(UserRole.ADMIN)

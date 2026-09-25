@@ -6,14 +6,14 @@ import {
   ApiTags,
 } from "@nestjs/swagger";
 
-import { CurrentUser, Roles } from "../auth/auth.decorators.js";
-import { AuthenticatedUser } from "../auth/auth.types.js";
-import { RolesGuard } from "../auth/roles.guard.js";
-import { VerifiedEmailGuard } from "../auth/verified-email.guard.js";
-import { UserRole } from "../users/entities/user-role.entity.js";
-import { CreateGmProfileDto } from "./dto/create-gm-profile.dto.js";
-import { UpdateGmProfileDto } from "./dto/update-gm-profile.dto.js";
-import { GmProfilesService } from "./gm-profiles.service.js";
+import { CurrentUser, Roles } from "../auth/auth.decorators";
+import { AuthenticatedUser } from "../auth/auth.types";
+import { RolesGuard } from "../auth/roles.guard";
+import { VerifiedEmailGuard } from "../auth/verified-email.guard";
+import { UserRole } from "../users/entities/user-role.entity";
+import { CreateGmProfileDto } from "./dto/create-gm-profile.dto";
+import { UpdateGmProfileDto } from "./dto/update-gm-profile.dto";
+import { GmProfilesService } from "./gm-profiles.service";
 
 @ApiTags("GM Profiles")
 @ApiBearerAuth()

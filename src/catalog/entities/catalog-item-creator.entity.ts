@@ -7,9 +7,9 @@ import {
 } from "typeorm";
 import type { Relation } from "typeorm";
 
-import { CreatorRole } from "../enums/catalog.enums.js";
-import { CatalogItemEntity } from "./catalog-item.entity.js";
-import { CreatorEntity } from "./creator.entity.js";
+import { CreatorRole } from "../enums/catalog.enums";
+import { CatalogItemEntity } from "./catalog-item.entity";
+import { CreatorEntity } from "./creator.entity";
 
 @Entity({ name: "catalog_item_creators" })
 export class CatalogItemCreatorEntity {

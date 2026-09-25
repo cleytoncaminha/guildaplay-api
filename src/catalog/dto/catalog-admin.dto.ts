@@ -21,7 +21,7 @@ import {
   CatalogExperienceLevel,
   CatalogItemType,
   CreatorRole,
-} from "../enums/catalog.enums.js";
+} from "../enums/catalog.enums";
 
 const trim = ({ value }: { value: unknown }) =>
   typeof value === "string" ? value.trim() : value;

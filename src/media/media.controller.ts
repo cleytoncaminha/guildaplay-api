@@ -7,10 +7,10 @@ import {
   Post,
 } from "@nestjs/common";
 import { ApiBearerAuth, ApiOperation, ApiTags } from "@nestjs/swagger";
-import { CurrentUser } from "../auth/auth.decorators.js";
-import { AuthenticatedUser } from "../auth/auth.types.js";
-import { UploadUrlDto } from "./dto/media.dto.js";
-import { MediaService } from "./media.service.js";
+import { CurrentUser } from "../auth/auth.decorators";
+import { AuthenticatedUser } from "../auth/auth.types";
+import { UploadUrlDto } from "./dto/media.dto";
+import { MediaService } from "./media.service";
 @ApiTags("Media")
 @ApiBearerAuth()
 @Controller({ path: "media", version: "1" })

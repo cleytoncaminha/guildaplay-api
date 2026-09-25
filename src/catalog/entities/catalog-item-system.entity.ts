@@ -7,8 +7,8 @@ import {
 } from "typeorm";
 import type { Relation } from "typeorm";
 
-import { CatalogItemEntity } from "./catalog-item.entity.js";
-import { RpgSystemEntity } from "./rpg-system.entity.js";
+import { CatalogItemEntity } from "./catalog-item.entity";
+import { RpgSystemEntity } from "./rpg-system.entity";
 
 @Entity({ name: "catalog_item_systems" })
 export class CatalogItemSystemEntity {

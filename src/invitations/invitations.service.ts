@@ -6,21 +6,21 @@ import {
 import { InjectRepository } from "@nestjs/typeorm";
 import { createHash, randomBytes } from "node:crypto";
 import { DataSource, Repository } from "typeorm";
-import { AuditLogEntity } from "../audit/audit-log.entity.js";
-import { AuthenticatedUser } from "../auth/auth.types.js";
+import { AuditLogEntity } from "../audit/audit-log.entity";
+import { AuthenticatedUser } from "../auth/auth.types";
 import {
   GameTableEntity,
   GameTableStatus,
-} from "../tables/entities/game-table.entity.js";
+} from "../tables/entities/game-table.entity";
 import {
   TableMemberEntity,
   TableMemberStatus,
-} from "../memberships/entities/table-member.entity.js";
+} from "../memberships/entities/table-member.entity";
 import {
   InvitationEntity,
   InvitationStatus,
-} from "./entities/invitation.entity.js";
-import { CreateInvitationDto } from "./dto/create-invitation.dto.js";
+} from "./entities/invitation.entity";
+import { CreateInvitationDto } from "./dto/create-invitation.dto";
 @Injectable()
 export class InvitationsService {
   constructor(

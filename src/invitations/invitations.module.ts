@@ -1,10 +1,10 @@
 import { Module } from "@nestjs/common";
 import { TypeOrmModule } from "@nestjs/typeorm";
-import { RolesGuard } from "../auth/roles.guard.js";
-import { VerifiedEmailGuard } from "../auth/verified-email.guard.js";
-import { InvitationEntity } from "./entities/invitation.entity.js";
-import { InvitationsController } from "./invitations.controller.js";
-import { InvitationsService } from "./invitations.service.js";
+import { RolesGuard } from "../auth/roles.guard";
+import { VerifiedEmailGuard } from "../auth/verified-email.guard";
+import { InvitationEntity } from "./entities/invitation.entity";
+import { InvitationsController } from "./invitations.controller";
+import { InvitationsService } from "./invitations.service";
 @Module({
   imports: [TypeOrmModule.forFeature([InvitationEntity])],
   controllers: [InvitationsController],

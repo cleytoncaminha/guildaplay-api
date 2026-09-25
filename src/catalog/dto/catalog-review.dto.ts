@@ -10,7 +10,7 @@ import {
   Min,
 } from "class-validator";
 
-import { CatalogReviewStatus } from "../entities/catalog-item-review.entity.js";
+import { CatalogReviewStatus } from "../entities/catalog-item-review.entity";
 
 export class UpsertCatalogReviewDto {
   @ApiProperty({ minimum: 1, maximum: 10 })

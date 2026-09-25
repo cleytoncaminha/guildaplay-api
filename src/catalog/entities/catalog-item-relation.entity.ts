@@ -9,8 +9,8 @@ import {
 } from "typeorm";
 import type { Relation } from "typeorm";
 
-import { CatalogItemRelationType } from "../enums/catalog.enums.js";
-import { CatalogItemEntity } from "./catalog-item.entity.js";
+import { CatalogItemRelationType } from "../enums/catalog.enums";
+import { CatalogItemEntity } from "./catalog-item.entity";
 
 @Entity({ name: "catalog_item_relations" })
 @Unique("UQ_catalog_item_relations_source_target_type", [

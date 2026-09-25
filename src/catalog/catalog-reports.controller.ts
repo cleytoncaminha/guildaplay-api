@@ -1,10 +1,10 @@
 import { Body, Controller, Post } from "@nestjs/common";
 import { ApiBearerAuth, ApiTags } from "@nestjs/swagger";
 
-import { CurrentUser } from "../auth/auth.decorators.js";
-import { AuthenticatedUser } from "../auth/auth.types.js";
-import { CatalogReportsService } from "./catalog-reports.service.js";
-import { CreateCatalogReportDto } from "./dto/catalog-report.dto.js";
+import { CurrentUser } from "../auth/auth.decorators";
+import { AuthenticatedUser } from "../auth/auth.types";
+import { CatalogReportsService } from "./catalog-reports.service";
+import { CreateCatalogReportDto } from "./dto/catalog-report.dto";
 
 @ApiTags("Catalog Reports")
 @ApiBearerAuth()

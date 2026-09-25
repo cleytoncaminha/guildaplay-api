@@ -2,8 +2,8 @@ import { Injectable } from "@nestjs/common";
 import { ConfigService } from "@nestjs/config";
 import { JwtService } from "@nestjs/jwt";
 import { createHash, randomBytes } from "node:crypto";
-import { EnvironmentVariables } from "../config/env.validation.js";
-import { JwtPayload } from "./auth.types.js";
+import { EnvironmentVariables } from "../config/env.validation";
+import { JwtPayload } from "./auth.types";
 @Injectable()
 export class TokenService {
   constructor(

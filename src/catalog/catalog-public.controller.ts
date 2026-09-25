@@ -1,11 +1,11 @@
 import { Controller, Get, Param, Query } from "@nestjs/common";
 import { ApiOperation, ApiResponse, ApiTags } from "@nestjs/swagger";
 
-import { Public } from "../auth/auth.decorators.js";
-import { CatalogPublicService } from "./catalog-public.service.js";
-import { CatalogPublicQueryDto } from "./dto/catalog-public-query.dto.js";
-import { ListCatalogReviewsQueryDto } from "./dto/catalog-review.dto.js";
-import { CatalogReviewsService } from "./catalog-reviews.service.js";
+import { Public } from "../auth/auth.decorators";
+import { CatalogPublicService } from "./catalog-public.service";
+import { CatalogPublicQueryDto } from "./dto/catalog-public-query.dto";
+import { ListCatalogReviewsQueryDto } from "./dto/catalog-review.dto";
+import { CatalogReviewsService } from "./catalog-reviews.service";
 
 @ApiTags("Catalog")
 @Public()

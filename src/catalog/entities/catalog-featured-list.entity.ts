@@ -10,9 +10,9 @@ import {
 } from "typeorm";
 import type { Relation } from "typeorm";
 
-import { UserEntity } from "../../users/entities/user.entity.js";
-import { CatalogStatus } from "../enums/catalog.enums.js";
-import { CatalogFeaturedListItemEntity } from "./catalog-featured-list-item.entity.js";
+import { UserEntity } from "../../users/entities/user.entity";
+import { CatalogStatus } from "../enums/catalog.enums";
+import { CatalogFeaturedListItemEntity } from "./catalog-featured-list-item.entity";
 
 @Entity({ name: "catalog_featured_lists" })
 export class CatalogFeaturedListEntity {
