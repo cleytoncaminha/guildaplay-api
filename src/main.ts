@@ -3,7 +3,7 @@ import { ConfigService } from "@nestjs/config";
 import { NestFactory } from "@nestjs/core";
 import { DocumentBuilder, SwaggerModule } from "@nestjs/swagger";
 import type { NextFunction } from "express";
-import helmet from "helmet";
+import * as helmet from "helmet";
 import cookieParser from "cookie-parser";
 
 import { AppModule } from "./app.module.js";
@@ -24,7 +24,7 @@ async function bootstrap() {
   );
 
   app.enableShutdownHooks();
-  app.use(helmet());
+  app.use(helmet.default());
   app.use(cookieParser());
   app.use(
     (
